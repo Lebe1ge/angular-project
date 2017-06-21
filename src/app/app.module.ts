@@ -10,10 +10,13 @@ import { AppComponent } from './app.component';
 import {HomeComponent} from './public/home/home.component';
 import {SearchComponent} from './public/search/search.component';
 import {SearchModule} from './public/search/search.module';
+import { HeaderComponent } from './shared/header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

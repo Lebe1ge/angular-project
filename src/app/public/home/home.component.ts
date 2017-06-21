@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Serie } from '../../entity/serie';
 import { SerieService } from '../../shared/serie/serie.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
