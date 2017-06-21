@@ -1,0 +1,36 @@
+/*---- HOME ----*/
+#home_header {
+   position: relative;
+   background-position: center center;
+   background-repeat: no-repeat;
+   -webkit-background-size: cover;
+   background-size: cover;
+    background-attachment: fixed;
+   padding: 200px 0;
+}
+
+
+#home_header:after {
+   content: '';
+   position: absolute;
+   top: 0; bottom: 0; left: 0; right: 0;
+   background: rgba(0, 0, 0, 0.7);
+   z-index: 1;
+}
+
+#home_header h1 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 50px;
+    position: relative;
+    text-transform: uppercase;
+    color: #FFF;
+    z-index: 2;
+}
+
+#home_header small {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 30px;
+    position: relative;
+    color: #FFF;
+    z-index: 2;
+}
