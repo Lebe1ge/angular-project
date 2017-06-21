@@ -11,7 +11,6 @@
          <a class="navbar-brand" href="/">Ventura</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
          <li><a href="">Mes séries</a></li>
@@ -19,17 +18,24 @@
       </ul>
       <div class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav register-section">
-             <!-- {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                 <li><a href="{{ path('fos_user_profile_edit') }}">{{ 'Mon profil'|trans({}, 'UserBundle') }}</a></li>
-                 <li><a href="{{ path('fos_user_security_logout') }}">{{ 'Déconnexion'|trans({}, 'UserBundle') }}</a></li>
-             {% else %} -->
-                 <li><a href="">Connexion</a></li>
+             <button
+                     class="btn btn-primary btn-margin"
+                     *ngIf="!auth.isAuthenticated()"
+                     (click)="auth.login()">
+                 Log In
+             </button>
+
+             <button
+                     class="btn btn-primary btn-margin"
+                     *ngIf="auth.isAuthenticated()"
+                     (click)="auth.logout()">
+                 Log Out
+             </button>
                  <li><a href="">Inscription</a></li>
-             <!-- {% endif %} -->
          </ul>
       </div>
-    </div><!-- /.navbar-collapse -->
-   </div><!-- /.container-fluid -->
+    </div>
+   </div>
 </nav>
 <div class="flash-{{ type }}">
     {{ message }}
