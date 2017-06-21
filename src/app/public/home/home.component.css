@@ -34,3 +34,33 @@
     color: #FFF;
     z-index: 2;
 }
+
+.banner {
+    padding: 50px;
+}
+
+.banner.red {
+    background-color: #C41945;
+}
+
+.banner.red a {
+    display: inline-block;
+    color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 10px;
+    padding: 10px 20px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.banner.red a:hover {
+    text-decoration: none;
+    background-color: #FFF;
+    color: #C41945;
+}
