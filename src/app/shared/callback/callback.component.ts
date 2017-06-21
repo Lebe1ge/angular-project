@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./callback.component.css']
 })
 export class CallbackComponent implements OnInit {
+  // Attributes
 
-    constructor() { }
+  // Methods
 
-    ngOnInit() {
-    }
+  // Lifecycle
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

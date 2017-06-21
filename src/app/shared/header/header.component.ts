@@ -9,7 +9,12 @@ import { AuthService } from './../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(public auth: AuthService) { }
+  // Attributes
+
+  // Methods
+
+  // Lifecycle
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }

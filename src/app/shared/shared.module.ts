@@ -7,6 +7,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { SerieComponent } from './serie/serie.component';
 import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
+import {CallbackComponent} from "./callback/callback.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { SerieService } from './serie/serie.service';
   ],
   declarations: [
     SerieComponent,
-    SerieService
+    CallbackComponent
   ],
   providers: [
       SerieService,

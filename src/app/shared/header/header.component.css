@@ -9,7 +9,7 @@
 }
 
 .navbar-default .navbar-brand {
-   background: url("../../../assets/img/logo-header.svg") 0 0 no-repeat;
+   background: url("/assets/img/logo-header.svg") 0 0 no-repeat;
    text-indent: -99999px;
    width: 70px;
    background-size: 100%;

@@ -8,13 +8,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="/">Ventura</a>
+         <a class="navbar-brand" routerLink="">Ventura</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
          <li><a href="">Mes séries</a></li>
-         <li><a href="">Explorer</a></li>
+         <li><a routerLink="search" >Explorer</a></li>
       </ul>
       <div class="nav navbar-nav navbar-right">
          <ul *ngIf="!auth.isAuthenticated()" class="nav navbar-nav register-section">
@@ -28,6 +28,3 @@
     </div>
    </div>
 </nav>
-<div class="flash-{{ type }}">
-    {{ message }}
-</div>

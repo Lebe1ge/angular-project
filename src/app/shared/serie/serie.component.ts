@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SerieComponent implements OnInit {
 
+  // Attributes
+
+  // Methods
+
+  // Lifecycle
   constructor() { }
 
   ngOnInit() {
