@@ -1,4 +1,4 @@
-export class Hero {
+export class Episode {
   id: number;
   name: string;
   number: string;

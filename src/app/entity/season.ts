@@ -1,4 +1,4 @@
-export class Hero {
+export class Season {
   id: number;
   name: string;
   startDate: string;

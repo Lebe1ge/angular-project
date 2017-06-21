@@ -1,4 +1,4 @@
-export class Hero {
+export class Comment {
   id: number;
   content: string;
   createdAt: string;
