@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
+import { SerieService } from '../../../shared/serie/serie.service';
+import {Serie} from '../../../entity/serie';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,11 +11,21 @@ import { Component, OnInit } from '@angular/core';
 export class SearchBarComponent implements OnInit {
 
   // Attributes
+  searchTerm: string;
+  isLoading = false;
+  // @Output series: Serie[];
 
   // Methods
+  search(): void {
+    this.getSeries();
+  }
+
+  getSeries(): void {
+    this.serieService.searchSeries(this.searchTerm);
+  }
 
   // Lifecycle
-  constructor() { }
+  constructor(private serieService: SerieService) { }
 
   ngOnInit() {
   }

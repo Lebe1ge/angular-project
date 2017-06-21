@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
     PublicRoutingModule,
   ],
   declarations: [
-    HomeComponent,
+    HomeComponent
   ]
 })
 export class PublicModule { }
