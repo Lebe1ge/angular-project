@@ -17,21 +17,12 @@
          <li><a href="">Explorer</a></li>
       </ul>
       <div class="nav navbar-nav navbar-right">
-         <ul class="nav navbar-nav register-section">
-             <button
-                     class="btn btn-primary btn-margin"
-                     *ngIf="!auth.isAuthenticated()"
-                     (click)="auth.login()">
-                 Log In
-             </button>
-
-             <button
-                     class="btn btn-primary btn-margin"
-                     *ngIf="auth.isAuthenticated()"
-                     (click)="auth.logout()">
-                 Log Out
-             </button>
-                 <li><a href="">Inscription</a></li>
+         <ul *ngIf="!auth.isAuthenticated()" class="nav navbar-nav register-section">
+            <li><a (click)="auth.login()" style="cursor: pointer;">Connexion</a></li>
+         </ul>
+         <ul *ngIf="auth.isAuthenticated()" class="nav navbar-nav register-section">
+           <li><a href="">Mon profil</a></li>
+           <li><a href="" (click)="auth.logout()">Déconnexion</a></li>
          </ul>
       </div>
     </div>
