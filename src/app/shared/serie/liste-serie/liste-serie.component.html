@@ -1,0 +1,12 @@
+<div class="container">
+  <div *ngIf="series.length > 0" class="row">
+
+    <app-bloc-serie *ngFor="let serie of series" [serie]="serie" ></app-bloc-serie>
+
+  </div>
+  <div *ngIf="series.length == 0">
+
+    Aucun résultat
+
+  </div>
+</div>

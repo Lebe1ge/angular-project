@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Serie } from '../../entity/serie';
 import { SerieService } from '../../shared/serie/serie.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,21 +10,18 @@ import { SerieService } from '../../shared/serie/serie.service';
 })
 export class HomeComponent implements OnInit {
 
+  // Attributes
   series: Serie[];
-  selectedSerie: Serie;
 
-  onSelect(serie: Serie): void {
-    this.selectedSerie = serie;
-  };
-
+  // Methods
   getSeries(): void {
     this.serieService.getSeries().then(series => this.series = series);
   }
 
+  // Lifecycle
+  constructor(private serieService: SerieService) { };
+
   ngOnInit(): void {
     this.getSeries();
   }
-
-  constructor(private serieService: SerieService) { };
-
 }

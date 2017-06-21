@@ -1,0 +1,28 @@
+.serie-wrapper {
+  position: relative;
+}
+
+.serie-wrapper:hover .shadow-hover {
+  opacity: 1;
+}
+
+.shadow-hover {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(0,0,0,0.7);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.shadow-hover .title {
+  font-size: 30px;
+  color: #FFF;
+}
