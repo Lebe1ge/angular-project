@@ -7,7 +7,9 @@ import { AccountModule } from './account/account.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-
+import {HomeComponent} from './public/home/home.component';
+import {SearchComponent} from './public/search/search.component';
+import {SearchModule} from './public/search/search.module';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { AppComponent } from './app.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
+        component: HomeComponent,
       },
+      { path: 'search',
+        component: SearchComponent,
+      }
     ]),
     PublicModule,
     AccountModule,
-    SharedModule
+    SharedModule,
+    SearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
