@@ -8,6 +8,8 @@ import { SerieComponent } from './serie/serie.component';
 import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
 import {CallbackComponent} from "./callback/callback.component";
+import { ListeSerieComponent } from './serie/liste-serie/liste-serie.component';
+import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import {CallbackComponent} from "./callback/callback.component";
   ],
   declarations: [
     SerieComponent,
-    CallbackComponent
+    CallbackComponent,
+    ListeSerieComponent,
+    BlocSerieComponent
   ],
   providers: [
       SerieService,
