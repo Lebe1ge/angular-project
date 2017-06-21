@@ -21,10 +21,11 @@
             <li><a (click)="auth.login()" style="cursor: pointer;">Connexion</a></li>
          </ul>
          <ul *ngIf="auth.isAuthenticated()" class="nav navbar-nav register-section">
-           <li><a href="">Mon profil</a></li>
+           <li><a routerLink="/my-profile" routerLinkActive="active">Mon profil</a></li>
            <li><a href="" (click)="auth.logout()">Déconnexion</a></li>
          </ul>
       </div>
     </div>
+        <router-outlet></router-outlet>
    </div>
 </nav>
