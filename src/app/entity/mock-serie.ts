@@ -14,6 +14,7 @@ export const SERIES: Serie[] = [
     genres: ['Crime', 'Drama'] ,
     length: '50',
     status: 'Série diffusée actuellement' ,
-    image: 'https://www.betaseries.com/images/fonds/poster/176941.jpg' ,
+    image: 'https://www.betaseries.com/images/fonds/poster/176941.jpg',
+    loaded: false
   },
 ];
