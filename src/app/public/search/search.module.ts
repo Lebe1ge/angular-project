@@ -4,14 +4,15 @@ import { SearchComponent } from './search.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {ListeSerieComponent} from '../../shared/serie/liste-serie/liste-serie.component';
 import {BlocSerieComponent} from '../../shared/serie/bloc-serie/bloc-serie.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     SearchComponent,
