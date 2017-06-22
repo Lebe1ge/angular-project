@@ -9,7 +9,7 @@
     <div class="shadow-hover">
       <p class="title text-uppercase">{{ serie.title }}</p>
       <p class="text-center">
-        <a href="" class="btn btn-primary" >Afficher</a>
+        <a [routerLink]="['/serie', serie.id]" class="btn btn-primary" >Afficher</a>
       </p>
       <p class="text-center">
         <a (click)="addToFavorite(serie.id);" class="btn btn-primary" >Suivre la série</a>
