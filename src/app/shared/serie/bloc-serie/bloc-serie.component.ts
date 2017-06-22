@@ -17,6 +17,14 @@ export class BlocSerieComponent implements OnInit {
   addToFavorite(id: string) :void{
     this.DataStorageService.add(id)
   }
+  
+  allFavorite() :void{
+    this.DataStorageService.getAllData();
+  }
+
+  removeFavorite(id: string) :void{
+    this.DataStorageService.removeData(id);
+  }
 
   // Lifecycle
   constructor(private DataStorageService: DataStorageService) { }

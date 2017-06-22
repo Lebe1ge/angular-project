@@ -24,12 +24,12 @@ export class SerieComponent implements OnInit {
     this.DataStorageService.add(id);
   }
 
-  deleteSerie(): void {
-    this.DataStorageService.removeData(SERIES, nameService)
+  deleteSerie(id: string): void {
+    this.DataStorageService.removeData(id);
   }
 
   getSerie(): void {
-    this.DataStorageService.getData(SERIES, nameService)
+    this.DataStorageService.getAllData()
   }
 
   constructor(private SerieService: SerieService, private ActivatedRoute: ActivatedRoute, private DataStorageService: DataStorageService) {} 

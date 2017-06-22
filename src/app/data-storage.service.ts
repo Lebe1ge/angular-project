@@ -26,30 +26,26 @@ export class DataStorageService {
   }
 
   // Remove les données stockées dans le local storage
-  removeData(entity: object, nameComponent:string): string {
+  removeData(id: string): string {
 
-    let idStorage = nameComponent + '_' + entity[0]['id'];
+    let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
 
-    if(null === localStorage.getItem(idStorage)){
-      throw new Error('This object doesnt exist on the storage');
+    if( data.indexOf(id) > -1 ){
+      data.splice(data.indexOf(id),1);
+      localStorage.setItem(KEY_STORAGE_FAVORITE, JSON.stringify(data));
+      return SUCCESS;
     }
 
-    localStorage.removeItem(idStorage);
-    return SUCCESS;
+    return ERROR;
   }
 
   // Récupère les données stockées dans le local storage
-  getData(entity: object, nameComponent:string): any {
+  getAllData(): any {
 
-    let dataComponent: object = entity[0];
-    let idStorage = nameComponent + '_' + dataComponent['id'];
-    let data: string;
-
-    if(null === localStorage.getItem(idStorage)){
-      throw new Error('This object doesnt exist on the storage');
+    let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
+    if(!data){
+      return ERROR;
     }
-
-    data = JSON.parse(localStorage.getItem(idStorage));
     return data;
   }
 
