@@ -7,14 +7,13 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { Serie } from '../../entity/serie';
-import { SERIES } from '../../entity/mock-serie';
+import { Episode } from '../../entity/episode';
 
 @Injectable()
-export class SerieService {
+export class EpisodeService {
     link = 'https://api.betaseries.com/search/all?v=2.4&query=';
-    serie: Serie;
-    series = [];
+    episode: Episode;
+    episodes = [];
     options = new RequestOptions({
         headers: new Headers({
             'Accept': 'application/json',
@@ -23,29 +22,12 @@ export class SerieService {
     });
 
 
-    searchSeries(searchTerm): Observable<Serie[]> {
-      const apiLink = this.link + searchTerm;
-      return this._http.get(apiLink, this.options)
-            .map(res => {
-              return res.json().shows;
-    });
-  }
-
-
-  getSeries(): Promise<Serie[]> {
-    return Promise.resolve(SERIES);
-  }
-
-  // getSerie(serieId): Promise<Serie> {
-  //   this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
-  //   .subscribe((res: Response) => {
-  //       this.serie = res.json().show;
-  //   });
-  //   return Promise.resolve(this.serie);
+  // getSeries(): Promise<Episode> {
+  //   return Promise.resolve(SERIES);
   // }
 
-  getSerie(serieId): Observable<Serie> {
-    return this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
+  getEpisode(episodeId): Observable<Episode> {
+    return this._http.get('https://api.betaseries.com/shows/display?id=' + episodeId, this.options)
                     .map((res: Response) => res.json().show)
                     .catch(this.handleError);
   }

@@ -28,7 +28,4 @@ export class DisplaySerieComponent implements OnInit {
       serie => this.serie = serie,
       error =>  this.errorMessage = <any>error);
   }
-
-
-
 }

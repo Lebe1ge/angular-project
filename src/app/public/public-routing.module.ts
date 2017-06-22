@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { DisplaySerieComponent } from './display-serie/display-serie.component';
+import { ShowEpisodeComponent } from './show-episode/show-episode.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   { path: 'serie/:serieId',
     component: DisplaySerieComponent,
+  },
+  { path: 'episode/:episodeId',
+    component: ShowEpisodeComponent,
   }
 ];
 

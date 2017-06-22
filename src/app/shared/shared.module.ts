@@ -8,6 +8,7 @@ import {CallbackComponent} from './callback/callback.component';
 
 import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
+import { EpisodeService } from './episode/episode.service';
 import { DataStorageService } from '../data-storage.service';
 
 import { SeasonComponent } from './season/season.component';
@@ -26,6 +27,7 @@ import { EpisodeComponent } from './episode/episode.component';
   ],
   providers: [
     SerieService,
+    EpisodeService,
     AuthService,
     Http,
     DataStorageService
