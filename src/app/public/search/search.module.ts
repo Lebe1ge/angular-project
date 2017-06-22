@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {ListeSerieComponent} from '../../shared/serie/liste-serie/liste-serie.component';
-import {BlocSerieComponent} from '../../shared/serie/bloc-serie/bloc-serie.component';
+import {SharedModule} from '../../shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
@@ -13,12 +13,12 @@ import {HttpModule} from '@angular/http';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+      SharedModule
   ],
   declarations: [
     SearchComponent,
     SearchBarComponent,
-    ListeSerieComponent,
-    BlocSerieComponent
+    ListeSerieComponent
   ],
   providers: []
 })

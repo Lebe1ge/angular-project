@@ -14,7 +14,6 @@ import { DataStorageService } from '../data-storage.service';
 import { SeasonComponent } from './season/season.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
-import { DisplaySerieComponent } from './serie/display-serie/display-serie.component';
 import { DisplaySeasonComponent } from './season/display-season/display-season.component';
 import { DisplayEpisodeComponent } from './episode/display-episode/display-episode.component';
 
@@ -29,15 +28,28 @@ import { DisplayEpisodeComponent } from './episode/display-episode/display-episo
     CallbackComponent,
     SeasonComponent,
     EpisodeComponent,
-    DisplaySerieComponent,
       DisplaySeasonComponent,
-      DisplayEpisodeComponent
+      DisplayEpisodeComponent,
+      BlocSerieComponent
   ],
     exports: [
-        DisplaySerieComponent
+        RouterModule,
+        SerieComponent,
+        CallbackComponent,
+        SeasonComponent,
+        EpisodeComponent,
+        DisplaySeasonComponent,
+        DisplayEpisodeComponent,
+        BlocSerieComponent
     ],
     bootstrap: [
-        DisplaySerieComponent
+        SerieComponent,
+        CallbackComponent,
+        SeasonComponent,
+        EpisodeComponent,
+        DisplaySeasonComponent,
+        DisplayEpisodeComponent,
+        BlocSerieComponent
     ],
   providers: [
     SerieService,

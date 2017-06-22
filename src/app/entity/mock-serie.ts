@@ -7,6 +7,7 @@ export const SERIES: Serie[] = [
     description: 'Description' ,
     seasons: '5',
     seasons_details: [],
+    notes: [],
     episodes: '20',
     followers: '20000',
     comments: '13',

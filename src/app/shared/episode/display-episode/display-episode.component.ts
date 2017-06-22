@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/auth/auth.service';
+import {Episode} from '../../../entity/episode';
+
+
 
 @Component({
   selector: 'app-display-episode',
@@ -7,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayEpisodeComponent implements OnInit {
 
-  constructor() { }
+    constructor(
+        public auth: AuthService,
+    ) {}
+
+    // Attributes
+    episode: Episode[] = [];
 
   ngOnInit() {
   }
