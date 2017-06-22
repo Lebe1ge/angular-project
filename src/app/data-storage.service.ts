@@ -2,17 +2,28 @@ import { Injectable } from '@angular/core';
 
 const SUCCESS: string = "success";
 const ERROR: string = "error";
+const KEY_STORAGE_FAVORITE: string = "mySeries";
 
 @Injectable()
 export class DataStorageService {
 
   // Rajoute de la données dans le local storage
-  updateOrAddData(entity: any, nameComponent: string): string {
+  add(id: string): string {
+   
+    let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
+    
+    if(!data) {
+      localStorage.setItem(KEY_STORAGE_FAVORITE, id);
+      return SUCCESS;
+    }
+    else if(!data.indexOf(id)) {
 
-    let idStorage = nameComponent + '_' + entity[0]['id'];
-    localStorage.setItem(idStorage, JSON.stringify(entity));
-    return SUCCESS;
+      data.push(id);
+      localStorage.setItem(KEY_STORAGE_FAVORITE, JSON.stringify(data));
+      return SUCCESS;
+    }
 
+    return ERROR;
   }
 
   // Remove les données stockées dans le local storage
@@ -40,7 +51,6 @@ export class DataStorageService {
     }
 
     data = JSON.parse(localStorage.getItem(idStorage));
-    console.log(data);
     return data;
   }
 

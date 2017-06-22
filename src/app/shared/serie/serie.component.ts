@@ -20,8 +20,8 @@ export class SerieComponent implements OnInit {
 
   // Lifecycle
 
-  addSerie(): void {
-    this.DataStorageService.updateOrAddData(SERIES, nameService)
+  addSerie(id: string): void {
+    this.DataStorageService.add(id);
   }
 
   deleteSerie(): void {
