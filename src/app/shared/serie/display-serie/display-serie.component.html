@@ -1,20 +1,17 @@
 <div id="serie" class="container">
   <div class="row mb-30">
     <div class="col-xs-12 col-sm-6 col-md-3 text-center mix">
-      <img src="{{ serie.images.poster }}" alt="" >
+      <img src="{{ serie.images.poster }}" alt="">
 
-      <!-- {% if app.user %}
-            {% if show not in app.user.subscriptions %}
-                <a href="#" id="follow_button" class="btn btn-primary follow" attr-id="{{ show.id }}" attr-user-id="{{ app.user.id }}" >
-                <span>Suivre cette série</span>
-            {% else %}
-                <a href="#" id="follow_button" class="btn btn-primary" attr-id="{{ show.id }}" attr-user-id="{{ app.user.id }}" >
-                <span>Ne plus suivre</span>
-            {% endif %}
-                <i class="fa fa-spin fa-refresh"></i>
-                </a>
-        {% else %} -->
-      <p>Connectez-vous si vous voulez suivre cette série.</p>
+      <a *ngIf="auth.isAuthenticated()" href="#" id="follow_button" class="btn btn-primary follow">
+          <span>Suivre cette série</span>
+        </a>
+
+      <!-- <a *ngIf="auth.isAuthenticated()" href="#" id="follow_button" class="btn btn-primary">
+          <span>Ne plus suivre</span>
+        </a> -->
+
+      <p *ngIf="!auth.isAuthenticated()">Connectez-vous si vous voulez suivre cette série.</p>
       <!-- {% endif %} -->
     </div>
     <div class="col-xs-12 col-sm-6 col-md-9">
