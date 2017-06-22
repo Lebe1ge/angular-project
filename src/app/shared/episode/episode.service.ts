@@ -27,8 +27,8 @@ export class EpisodeService {
   // }
 
   getEpisode(episodeId): Observable<Episode> {
-    return this._http.get('https://api.betaseries.com/shows/display?id=' + episodeId, this.options)
-                    .map((res: Response) => res.json().show)
+    return this._http.get('https://api.betaseries.com/episodes/display?id=' + episodeId, this.options)
+                    .map((res: Response) => res.json().episode)
                     .catch(this.handleError);
   }
 
