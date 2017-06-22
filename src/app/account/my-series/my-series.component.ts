@@ -15,8 +15,12 @@ export class MySeriesComponent implements OnInit {
   constructor(private SerieService: SerieService, private DataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    console.log("LOOOOL");
-    console.log(this.SerieService.getUserSeries(this.DataStorageService.getAllData()));
+    this.SerieService
+    .getUserSeries(this.DataStorageService.getAllData())
+    .subscribe(series => {
+      console.log(series);
+      this.series = series;
+    });
   }
 
 }
