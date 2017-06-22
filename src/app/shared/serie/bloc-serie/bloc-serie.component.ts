@@ -18,8 +18,12 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.add(id)
   }
   
-  allFavorite() :void{
+  allFavorite() :void {
     this.DataStorageService.getAllData();
+  }
+
+  isFavorite(id: number): void {
+    this.DataStorageService.getFavoriteById(id);
   }
 
   removeFavorite(id: string) :void{

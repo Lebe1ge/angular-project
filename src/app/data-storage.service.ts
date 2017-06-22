@@ -46,7 +46,20 @@ export class DataStorageService {
     if(!data){
       return ERROR;
     }
+
     return data;
+  }
+
+  // Récupère les données stockées dans le local storage
+  getFavoriteById(id: number): any {
+    console.log(id);
+    let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
+    if( data.indexOf(id) == -1 ) {
+      console.log("ALLLLO");
+      return false;
+    }
+    console.log("SALUT");
+    return true;
   }
 
 }

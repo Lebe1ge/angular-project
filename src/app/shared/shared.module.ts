@@ -42,7 +42,7 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
   ]
 })
 export class SharedModule {
-    constructor(public auth: AuthService) {
+    constructor(public auth: AuthService ) {
         auth.handleAuthentication();
     }
 }
