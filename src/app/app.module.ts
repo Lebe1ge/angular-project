@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { PublicModule } from './public/public.module';
 import { AccountModule } from './account/account.module';
 import { SharedModule } from './shared/shared.module';
@@ -26,9 +27,6 @@ import { BlocSerieComponent } from './shared/serie/bloc-serie/bloc-serie.compone
     RouterModule.forRoot([
       { path: '',
         component: HomeComponent,
-      },
-      { path: 'search',
-        component: SearchComponent,
       }
     ]),
     PublicModule,
