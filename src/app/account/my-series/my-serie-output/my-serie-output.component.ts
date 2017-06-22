@@ -1,0 +1,32 @@
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Serie } from '../../../entity/serie';
+import { SerieService } from "../../../shared/serie/serie.service";
+import { DataStorageService } from "../../../data-storage.service";
+
+@Component({
+  selector: 'app-my-serie-output',
+  templateUrl: './my-serie-output.component.html',
+  styleUrls: ['./my-serie-output.component.css']
+})
+export class MySerieOutputComponent implements OnInit {
+
+  // Attributes
+  searchTerm: string;
+  isLoading = false;
+  series = [];
+
+  @Output() seriesUpdate = new EventEmitter();
+
+  constructor(private SerieService: SerieService, private DataStorageService: DataStorageService) { }
+
+  ngOnInit() {
+    this.SerieService
+    .getUserSeries(this.DataStorageService.getAllData())
+    .subscribe(series => {
+      this.series = series;
+      this.seriesUpdate.emit(series);
+      this.isLoading = false;
+    });
+  }
+
+}

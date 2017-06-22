@@ -3,6 +3,6 @@
         <div class="col-xs-12">
             <h1>Mes séries</h1>
         </div>
-        <app-liste-serie [series]="series" ></app-liste-serie>
+        <app-my-serie-output (seriesUpdate)="handleSeriesUpdated($event)" ></app-my-serie-output>
     </div>
 </div>
