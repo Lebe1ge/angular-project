@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Serie } from '../../entity/serie';
 import { SERIES } from '../../entity/mock-serie';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { BETA_SERIES_CONFIG } from '../shared-variables';
+import { API } from '../shared-variables';
 
 
 @Injectable()
@@ -15,7 +15,7 @@ export class SerieService {
     options = new RequestOptions({
         headers: new Headers({
             'Accept': 'application/json',
-            'X-BetaSeries-Key': BETA_SERIES_CONFIG.apiKey,
+            'X-BetaSeries-Key': API.apiKey,
         })
     });
 
