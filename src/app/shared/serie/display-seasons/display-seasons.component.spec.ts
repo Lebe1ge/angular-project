@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlocEpisodeComponent } from './bloc-episode.component';
+import { BlocSeasonsComponent } from './display-season.component';
 
-describe('BlocEpisodeComponent', () => {
-  let component: BlocEpisodeComponent;
-  let fixture: ComponentFixture<BlocEpisodeComponent>;
+describe('BlocSeasonsComponent', () => {
+  let component: BlocSeasonsComponent;
+  let fixture: ComponentFixture<BlocSeasonsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlocEpisodeComponent ]
+      declarations: [ BlocSeasonsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlocEpisodeComponent);
+    fixture = TestBed.createComponent(BlocSeasonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

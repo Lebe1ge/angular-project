@@ -1,12 +1,45 @@
-<div class="mix col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-  <div class="serie-wrapper">
-    <img src="" alt="" >
-
-    <div class="shadow-hover">
-      <p class="title text-uppercase"></p>
-      <p class="text-center">
-        <a href="" class="btn btn-primary" >Afficher</a>
-      </p>
+<div id="episodes" class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Saison n°{{ season.number }}</h1>
+        </div>
+        <div class="mix col-xs-12 col-sm-6 col-md-3 text-center mb-30">
+            {% if season.image is defined %}
+            <img src="{{ season.image }}" alt="" >
+            {% else %}
+            {% image '@AppBundle/Resources/images/no_image.jpg' output='/images/no_image.jpg' %}
+            <img src="{{ asset_url }}" alt="Ceci n'est pas une image" />
+            {% endimage %}
+            {% endif %}
+        </div>
     </div>
-  </div>
+
+    <div class="row">
+        {% if episodes is defined %}
+        {% for episode in episodes %}
+        <div id="{{ episode.name | lower |replace({' ': "-"}) }}" class="episode col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <p class="episode-name text-uppercase mt-20">
+            <strong>Episode n°{{ episode.number }} : </strong><br/>
+            {{ episode.name }}
+        </p>
+        {% if episode.image is not null %}
+        <img src="{{ episode.image }}" alt="" >
+        {% else %}
+        {% image '@AppBundle/Resources/images/no_image.jpg' output='/images/no_image.jpg' %}
+        <img src="{{ asset_url }}" alt="Ceci n'est pas une image"/>
+        {% endimage %}
+        {% endif %}
+        <a href="{{ path("show_episode" , {'id': episode.id }) }}" class="btn btn-primary" >Voir</a>
+        {% if app.user %}
+        {% if episode not in app.user.episodes_seen %}
+        <a href="#" class="mark-as-seen btn btn-primary" attr-id="{{ episode.id }}" attr-user-id="{{ app.user.id }}" >Episode vu</a>
+        {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+
+</div>
 </div>

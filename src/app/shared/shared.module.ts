@@ -10,8 +10,8 @@ import { SerieService } from './serie/serie.service';
 import {CallbackComponent} from "./callback/callback.component";
 import { ListeSerieComponent } from './serie/liste-serie/liste-serie.component';
 import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
-import { BlocSeasonsComponent } from './serie/bloc-seasons/bloc-seasons.component';
-import { BlocEpisodeComponent } from './serie/bloc-episode/bloc-episode.component';
+import { BlocSeasonsComponent } from './serie/display-season/display-season.component';
+import { BlocEpisodeComponent } from './serie/display-episode/display-episode.component';
 
 @NgModule({
   imports: [

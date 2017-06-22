@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bloc-episode',
-  templateUrl: './bloc-episode.component.html',
-  styleUrls: ['./bloc-episode.component.css']
+  selector: 'app-display-episode',
+  templateUrl: './display-episode.component.html',
+  styleUrls: ['./display-episode.component.css']
 })
 export class BlocEpisodeComponent implements OnInit {
 
