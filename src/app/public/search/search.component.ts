@@ -13,7 +13,9 @@ export class SearchComponent implements OnInit {
   series: Serie[] = [];
 
   // Methods
-
+  handleSeriesUpdated(series) {
+    this.series = series;
+  }
 
   // Lifecycle
   constructor() { }
