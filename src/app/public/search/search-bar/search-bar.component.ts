@@ -16,7 +16,8 @@ export class SearchBarComponent implements OnInit {
   // @Output series: Serie[];
 
   // Methods
-  search(): void {
+  search(searchTerm: HTMLInputElement): void {
+      console.log(`User entered: ${searchTerm}`);
     this.getSeries();
   }
 

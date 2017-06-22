@@ -1,17 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Serie } from '../../entity/serie';
 import { SERIES } from '../../entity/mock-serie';
-import { Http } from '@angular/http';
-import {Observable} from "rxjs";
+import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Observable } from "rxjs";
+import { BETA_SERIES_CONFIG } from '../shared-variables';
+
 
 @Injectable()
 export class SerieService {
 
+    link = 'https://api.betaseries.com/search/all?v=2.4&query=';
+    http: Http;
+    series = [];
+    options = new RequestOptions({
+        headers: new Headers({
+            'Accept': 'application/json',
+            'X-BetaSeries-Key': BETA_SERIES_CONFIG.apiKey
+        })
+    });
+
+
   searchSeries(searchTerm): Promise<Serie[]> {
-    this._http
-      .get('https://api.betaseries.com/search/all?v=2.4&query=' + searchTerm)
-      .map( res => { return res.json(); } )
-      .catch( error => { return Observable.throw(new Error(error.status)); });
+      var apiLink = this.link + searchTerm;
+      this.http.request(apiLink, this.options) .subscribe((res: Response) => {
+          this.series = res.json().data;
+      });
 
     return Promise.resolve(SERIES);
   }
@@ -20,8 +33,8 @@ export class SerieService {
     return Promise.resolve(SERIES);
   }
 
-  constructor (private _http: Http) {
-    // this.header.append('X-BetaSeries-Key', 'b213ef91be08');
+  constructor (http: Http) {
+      this.http = http;
   }
 
 }
