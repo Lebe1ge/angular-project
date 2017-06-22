@@ -31,18 +31,17 @@ export class SerieService {
     });
   }
 
+  searchDetailSerie(id): Observable<Serie> {
+    const apiLink = 'https://api.betaseries.com/shows/display?v=2.4&id=' + id;
+
+    return this._http.get(apiLink, this.options).map(res => {
+      return res.json().show;
+    });
+  }
 
   getSeries(): Promise<Serie[]> {
     return Promise.resolve(SERIES);
   }
-
-  // getSerie(serieId): Promise<Serie> {
-  //   this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
-  //   .subscribe((res: Response) => {
-  //       this.serie = res.json().show;
-  //   });
-  //   return Promise.resolve(this.serie);
-  // }
 
   getSerie(serieId): Observable<Serie> {
     return this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)

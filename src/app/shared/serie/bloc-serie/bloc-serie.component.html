@@ -1,6 +1,7 @@
 <div class="mix col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
   <div class="serie-wrapper">
-    <img src="" alt="" >
+    <img src="" alt="" *ngIf="serie.image === undefined" >
+    <img src="{{ serie.image }}" alt="{{ serie.title }}" *ngIf="serie.image !== undefined" >
 
     <div class="shadow-hover">
       <p class="title text-uppercase">{{ serie.title }}</p>

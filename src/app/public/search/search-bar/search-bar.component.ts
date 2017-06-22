@@ -5,8 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/filter';
 
-import { SerieService } from '../../../shared/serie/serie.service';
 import {Serie} from '../../../entity/serie';
+import { SerieService } from '../../../shared/serie/serie.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -16,38 +16,34 @@ import {Serie} from '../../../entity/serie';
 export class SearchBarComponent implements OnInit {
 
   // Attributes
-  searchForm: FormGroup;
   searchTerm: string;
   isLoading = false;
-  @Output() series = new EventEmitter();
+  series = [];
+  @Output() seriesUpdate = new EventEmitter();
 
   // Methods
-
+  searching(): void {
+    this.isLoading = true;
+    this.serieService
+      .searchSeries(this.searchTerm)
+      .subscribe(series => {
+        this.series = series;
+        this.seriesUpdate.emit(series);
+        this.isLoading = false;
+      });
+    console.log(this.series);
+    for (let entry of this.series) {
+      console.log(entry);
+    }
+  }
 
   // Lifecycle
-  constructor(private serieService: SerieService, private fb: FormBuilder) {
-    this.searchForm = fb.group({
-      searchTerm: []
-    });
+  constructor(private serieService: SerieService) {
+
   }
 
   ngOnInit() {
-    this.searchForm
-      .valueChanges
-      .map(search => search.searchTerm)
-      .filter(searchTerm => (searchTerm.length >= 3))
-      .debounceTime(400)
-      .flatMap(searchTerm => {
-        this.isLoading = true;
-        return this.serieService.searchSeries(searchTerm);
-      })
-      .subscribe(
-        series => {
-          this.series.emit(series);
-          this.isLoading = false;
-        },
-        err => console.error(err)
-      );
+
   }
 
 }

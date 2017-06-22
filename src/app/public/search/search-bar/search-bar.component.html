@@ -1,14 +1,20 @@
 <div id="searching-bar-content">
-  <form id="searching_bar" class="mb-20 input-group" [formGroup]="searchForm" >
-    <input class="form-control" id="search" formControlName="searchTerm" placeholder="Rechercher une série">
+  <div id="searching_bar" class="mb-20 input-group" >
+    <input
+      id="search"
+      class="form-control"
+      placeholder="Rechercher une série"
+      [(ngModel)]="searchTerm"
+    >
     <span class="input-group-btn">
         <button
           id="search_for"
           class="btn btn-primary"
           [class.loading]="isLoading"
+          (click)="searching()"
         >
             Rechercher<i class="fa fa-refresh fa-spin"></i>
         </button>
     </span>
-  </form>
+  </div>
 </div>
