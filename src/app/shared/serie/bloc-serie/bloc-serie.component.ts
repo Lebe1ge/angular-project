@@ -10,6 +10,7 @@ export class BlocSerieComponent implements OnInit {
 
   // Attributes
   @Input() serie: Serie;
+  @Input() isLoading = true;
 
   // Methods
 

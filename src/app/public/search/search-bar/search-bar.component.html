@@ -1,8 +1,9 @@
 <div id="searching-bar-content">
-  <div id="searching_bar" class="mb-20 input-group" >
+  <form id="searching_bar" class="mb-20 input-group" >
     <input
       id="search"
       class="form-control"
+      name="searchTerm"
       placeholder="Rechercher une série"
       [(ngModel)]="searchTerm"
     >
@@ -16,5 +17,5 @@
             Rechercher<i class="fa fa-refresh fa-spin"></i>
         </button>
     </span>
-  </div>
+  </form>
 </div>

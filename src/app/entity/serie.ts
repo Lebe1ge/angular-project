@@ -14,4 +14,5 @@ export class Serie {
   length: string;
   status: string;
   image: string;
+  loaded: boolean;
 }

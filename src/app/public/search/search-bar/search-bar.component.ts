@@ -31,10 +31,6 @@ export class SearchBarComponent implements OnInit {
         this.seriesUpdate.emit(series);
         this.isLoading = false;
       });
-    console.log(this.series);
-    for (let entry of this.series) {
-      console.log(entry);
-    }
   }
 
   // Lifecycle
