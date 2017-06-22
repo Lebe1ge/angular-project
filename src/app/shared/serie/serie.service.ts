@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import { Serie } from '../../entity/serie';
 import { SERIES } from '../../entity/mock-serie';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+
 import { API } from '../shared-variables';
 
+import {Observable} from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class SerieService {
 
     link = 'https://api.betaseries.com/search/all?v=2.4&query=';
-    http: Http;
     serie: Serie = new Serie;
     series = [];
     options = new RequestOptions({
@@ -20,30 +23,27 @@ export class SerieService {
     });
 
 
-  searchSeries(searchTerm): Promise<Serie[]> {
+    searchSeries(searchTerm): Observable<Serie[]> {
       const apiLink = this.link + searchTerm;
-      this.http.request(apiLink, this.options) .subscribe((res: Response) => {
-          this.series = res.json().data;
-      });
-
-    return Promise.resolve(SERIES);
+      return this._http.get(apiLink, this.options)
+            .map(res => {
+              return res.json().shows;
+    });
   }
+
 
   getSeries(): Promise<Serie[]> {
     return Promise.resolve(SERIES);
   }
 
   getSerie(serieId): Promise<Serie> {
-
-    this.http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
+    this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
     .subscribe((res: Response) => {
         this.serie = res.json().show;
     });
     return Promise.resolve(this.serie);
   }
 
-  constructor (http: Http) {
-      this.http = http;
-  }
+  constructor (private _http: Http) {}
 
 }
