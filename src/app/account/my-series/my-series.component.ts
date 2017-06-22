@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Serie } from '../../entity/serie';
+import { SerieService } from '../../shared/serie/serie.service';
+import { DataStorageService } from '../../data-storage.service';
 
 @Component({
   selector: 'app-my-series',
@@ -10,9 +12,11 @@ export class MySeriesComponent implements OnInit {
 
   @Input() series: Serie[];
 
-  constructor() { }
+  constructor(private SerieService: SerieService, private DataStorageService: DataStorageService) { }
 
   ngOnInit() {
+    console.log("LOOOOL");
+    console.log(this.SerieService.getUserSeries(this.DataStorageService.getAllData()));
   }
 
 }

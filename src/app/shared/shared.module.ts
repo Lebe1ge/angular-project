@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
-import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { SerieComponent } from './serie/serie.component';
 import { CallbackComponent } from './callback/callback.component';
@@ -20,6 +20,7 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
   imports: [
     CommonModule,
     SharedRoutingModule,
+    HttpModule
   ],
   declarations: [
     SerieComponent,
@@ -33,7 +34,6 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
     SerieService,
     EpisodeService,
     AuthService,
-    Http,
     DataStorageService
   ],
   exports: [
