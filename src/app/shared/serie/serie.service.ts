@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BETA_SERIES_CONFIG } from '../shared-variables';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
 import { API } from '../shared-variables';
 
-import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Serie } from '../../entity/serie';
 import { SERIES } from '../../entity/mock-serie';
+import { Observable } from "rxjs";
 
 @Injectable()
 export class SerieService {
