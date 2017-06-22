@@ -13,11 +13,10 @@ export class DataStorageService {
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
     
     if(!data) {
-      localStorage.setItem(KEY_STORAGE_FAVORITE, id);
+      localStorage.setItem(KEY_STORAGE_FAVORITE, JSON.stringify([id]));
       return SUCCESS;
     }
-    else if(!data.indexOf(id)) {
-
+    else if(data.indexOf(id) == -1) {
       data.push(id);
       localStorage.setItem(KEY_STORAGE_FAVORITE, JSON.stringify(data));
       return SUCCESS;
