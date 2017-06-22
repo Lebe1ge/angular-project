@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
   series: Serie[];
 
   // Methods
-  getSeries(): void {
+  /*getSeries(): void {
     this.serieService.getSeries().then(series => this.series = series);
-  }
+  }*/
 
   // Lifecycle
   constructor(private serieService: SerieService) { };
 
   ngOnInit(): void {
-    this.getSeries();
+    /*this.getSeries();*/
   }
 }
