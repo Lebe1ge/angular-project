@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Serie } from '../../entity/serie';
-import { SERIES } from '../../entity/mock-serie';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { BETA_SERIES_CONFIG } from '../shared-variables';
 import {Observable} from 'rxjs';
