@@ -1,5 +1,4 @@
 .mix {
-  padding-bottom: 67.5%;
   overflow: hidden;
 }
 
@@ -47,11 +46,11 @@
 
 .mix:after {
   content: '';
-  position: absolute;
-  top: 0; left: 15px; right: 15px; bottom: 0;
+  display: block;
   background: #000;
   background: rgba(0, 0, 0, 0.6);
   opacity: 0;
+  padding-bottom: 147%;
   -webkit-transition: opacity 0.3s;
   -moz-transition: opacity 0.3s;
   -ms-transition: opacity 0.3s;
