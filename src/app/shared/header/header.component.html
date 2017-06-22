@@ -13,7 +13,6 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-         <li><a href="">Mes séries</a></li>
          <li><a routerLink="search" >Explorer</a></li>
       </ul>
       <div class="nav navbar-nav navbar-right">
@@ -21,10 +20,12 @@
             <li><a (click)="auth.login()" style="cursor: pointer;">Connexion</a></li>
          </ul>
          <ul *ngIf="auth.isAuthenticated()" class="nav navbar-nav register-section">
-           <li><a href="">Mon profil</a></li>
-           <li><a href="" (click)="auth.logout()">Déconnexion</a></li>
+                <li><a routerLink="/my-series" routerLinkActive="active" href="">Mes séries</a></li>
+                <li><a routerLink="/my-profile" routerLinkActive="active">Mon profil</a></li>
+                <li><a href="" (click)="auth.logout()">Déconnexion</a></li>
          </ul>
       </div>
     </div>
+        <router-outlet></router-outlet>
    </div>
 </nav>
