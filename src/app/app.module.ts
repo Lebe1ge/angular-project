@@ -34,6 +34,9 @@ import { BlocSerieComponent } from './shared/serie/bloc-serie/bloc-serie.compone
     SharedModule,
     SearchModule
   ],
+  exports: [
+      RouterModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

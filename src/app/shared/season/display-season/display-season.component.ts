@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './display-season.component.html',
   styleUrls: ['./display-season.component.css']
 })
-export class BlocSeasonsComponent implements OnInit {
+export class DisplaySeasonComponent implements OnInit {
 
   constructor() { }
 
