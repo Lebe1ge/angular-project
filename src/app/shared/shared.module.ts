@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
-
-
+import {Http} from '@angular/http';
 
 import { SerieComponent } from './serie/serie.component';
 import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
-import {CallbackComponent} from "./callback/callback.component";
-import { ListeSerieComponent } from './serie/liste-serie/liste-serie.component';
-import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
-import { BlocSeasonsComponent } from './serie/display-season/display-season.component';
-import { BlocEpisodeComponent } from './serie/display-episode/display-episode.component';
+import {CallbackComponent} from './callback/callback.component';
 
 @NgModule({
   imports: [
@@ -21,14 +16,11 @@ import { BlocEpisodeComponent } from './serie/display-episode/display-episode.co
   declarations: [
     SerieComponent,
     CallbackComponent,
-    ListeSerieComponent,
-    BlocSerieComponent,
-    BlocSeasonsComponent,
-    BlocEpisodeComponent
   ],
   providers: [
-      SerieService,
-      AuthService
+    SerieService,
+    AuthService,
+    Http
   ],
 })
 export class SharedModule {

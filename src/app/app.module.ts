@@ -11,6 +11,8 @@ import { HomeComponent } from './public/home/home.component';
 import { SearchComponent } from './public/search/search.component';
 import { SearchModule } from './public/search/search.module';
 import { HeaderComponent } from './shared/header/header.component';
+import { ListeSerieComponent } from './shared/serie/liste-serie/liste-serie.component';
+import { BlocSerieComponent } from './shared/serie/bloc-serie/bloc-serie.component';
 
 
 @NgModule({
