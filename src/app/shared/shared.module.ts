@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
+import {Http} from '@angular/http';
 
 import { SerieComponent } from './serie/serie.component';
 import { AuthService } from './auth/auth.service';
@@ -18,13 +19,12 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
   declarations: [
     SerieComponent,
     CallbackComponent,
-    ListeSerieComponent,
-    BlocSerieComponent
   ],
   providers: [
-      SerieService,
-      AuthService,
-      DataStorageService
+    SerieService,
+    AuthService,
+    Http,
+    DataStorageService
   ],
 })
 export class SharedModule {

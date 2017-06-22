@@ -1,14 +1,17 @@
 <div id="searching-bar-content">
-  <div id="searching_bar" class="input-group mb-20">
-    <input type="search" class="form-control" id="search" placeholder="Rechercher une série">
+  <div id="searching_bar" class="form-group mb-20" >
+    <input [(ngModel)]="searchTerm" class="form-control" id="search" placeholder="Rechercher une série">
     <span class="input-group-btn">
         <button
           id="search_for"
           class="btn btn-primary"
-          type="submit"
+          (click)="search(searchTerm)"
         >
             Rechercher<i class="fa fa-refresh fa-spin"></i>
         </button>
     </span>
+      <div *ngFor="let serie of series?.shows">
+          <img src="{{serie.title}}">
+      </div>
   </div>
 </div>
