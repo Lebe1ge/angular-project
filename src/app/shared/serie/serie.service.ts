@@ -12,7 +12,6 @@ import { SERIES } from '../../entity/mock-serie';
 
 @Injectable()
 export class SerieService {
-
     link = 'https://api.betaseries.com/search/all?v=2.4&query=';
     serie: Serie;
     series = [];
@@ -64,7 +63,5 @@ export class SerieService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
   constructor (private _http: Http) {}
-
 }

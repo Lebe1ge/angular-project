@@ -8,13 +8,15 @@ import {CallbackComponent} from './callback/callback.component';
 
 import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
+import { DataStorageService } from '../data-storage.service';
+
 import { SeasonComponent } from './season/season.component';
 import { EpisodeComponent } from './episode/episode.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
   ],
   declarations: [
     SerieComponent,
@@ -25,7 +27,8 @@ import { EpisodeComponent } from './episode/episode.component';
   providers: [
     SerieService,
     AuthService,
-    Http
+    Http,
+    DataStorageService
   ],
 })
 export class SharedModule {
