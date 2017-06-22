@@ -26,9 +26,6 @@ import { BlocSerieComponent } from './shared/serie/bloc-serie/bloc-serie.compone
     RouterModule.forRoot([
       { path: '',
         component: HomeComponent,
-      },
-      { path: 'search',
-        component: SearchComponent,
       }
     ]),
     PublicModule,

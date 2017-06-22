@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PublicRoutingModule } from './public-routing.module';
 import { HomeComponent } from './home/home.component';
+import { DisplaySerieComponent } from './display-serie/display-serie.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import { HomeComponent } from './home/home.component';
     PublicRoutingModule,
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    DisplaySerieComponent
   ]
 })
 export class PublicModule { }
