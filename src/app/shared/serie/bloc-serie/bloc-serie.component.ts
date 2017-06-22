@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Serie } from '../../../entity/serie';
+import { DataStorageService } from '../../../data-storage.service';
 
 @Component({
   selector: 'app-bloc-serie',
@@ -13,10 +14,20 @@ export class BlocSerieComponent implements OnInit {
   @Input() isLoading = true;
 
   // Methods
+  addToFavorite(id: string) :void{
+    this.DataStorageService.add(id)
+  }
+  
+  allFavorite() :void{
+    this.DataStorageService.getAllData();
+  }
 
+  removeFavorite(id: string) :void{
+    this.DataStorageService.removeData(id);
+  }
 
   // Lifecycle
-  constructor() { }
+  constructor(private DataStorageService: DataStorageService) { }
 
   ngOnInit() {
   }

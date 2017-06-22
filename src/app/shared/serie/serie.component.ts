@@ -20,16 +20,16 @@ export class SerieComponent implements OnInit {
 
   // Lifecycle
 
-  addSerie(): void {
-    this.DataStorageService.updateOrAddData(SERIES, nameService)
+  addSerie(id: string): void {
+    this.DataStorageService.add(id);
   }
 
-  deleteSerie(): void {
-    this.DataStorageService.removeData(SERIES, nameService)
+  deleteSerie(id: string): void {
+    this.DataStorageService.removeData(id);
   }
 
   getSerie(): void {
-    this.DataStorageService.getData(SERIES, nameService)
+    this.DataStorageService.getAllData()
   }
 
   constructor(private SerieService: SerieService, private ActivatedRoute: ActivatedRoute, private DataStorageService: DataStorageService) {} 
