@@ -28,6 +28,14 @@ export class SerieService {
             });
   }
 
+  searchDetailSerie(id): Observable<Serie> {
+    const apiLink = 'https://api.betaseries.com/shows/display?v=2.4&id=' + id;
+
+    return this._http.get(apiLink, this.options).map(res => {
+      return res.json().show;
+    });
+  }
+
   getSeries(): Promise<Serie[]> {
     return Promise.resolve(SERIES);
   }
