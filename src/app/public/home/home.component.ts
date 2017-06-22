@@ -15,13 +15,13 @@ export class HomeComponent implements OnInit {
 
   // Methods
   getSeries(): void {
-    this.serieService.getSeries().then(series => this.series = series);
+    // this.serieService.getSeries().then(series => this.series = series);
   }
 
   // Lifecycle
   constructor(private serieService: SerieService) { };
 
   ngOnInit(): void {
-    this.getSeries();
+    // this.getSeries();
   }
 }
