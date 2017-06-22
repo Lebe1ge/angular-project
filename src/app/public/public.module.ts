@@ -2,21 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PublicRoutingModule } from './public-routing.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { HomeComponent } from './home/home.component';
-import { DisplaySerieComponent } from './display-serie/display-serie.component';
 import { ShowEpisodeComponent } from './show-episode/show-episode.component';
-import { DisplayEpisodeComponent } from '../shared/episode/display-episode/display-episode.component';
+import { ShowSerieComponent } from './show-serie/show-serie.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PublicRoutingModule,
+    SharedModule
   ],
   declarations: [
     HomeComponent,
-    DisplaySerieComponent,
     ShowEpisodeComponent,
-    DisplayEpisodeComponent
+    ShowSerieComponent
   ]
 })
 export class PublicModule { }

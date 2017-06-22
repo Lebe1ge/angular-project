@@ -15,6 +15,8 @@ import { SeasonComponent } from './season/season.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { ListeSerieComponent } from './serie/liste-serie/liste-serie.component';
 import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
+import { DisplayEpisodeComponent } from './episode/display-episode/display-episode.component';
+import { DisplaySerieComponent } from './serie/display-serie/display-serie.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
     SeasonComponent,
     EpisodeComponent,
     ListeSerieComponent,
-    BlocSerieComponent
+    BlocSerieComponent,
+    DisplayEpisodeComponent,
+    DisplaySerieComponent
   ],
   providers: [
     SerieService,
@@ -38,7 +42,9 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
   ],
   exports: [
     ListeSerieComponent,
-    BlocSerieComponent
+    BlocSerieComponent,
+    DisplayEpisodeComponent,
+    DisplaySerieComponent
   ]
 })
 export class SharedModule {
