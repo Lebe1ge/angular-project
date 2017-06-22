@@ -1,5 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
+.btn-primary {
+  background-color: #F51F56 !important;
+  border: 1px solid #F51F56 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus:active {
+  background-color: #C41945 !important;
+  border: 1px solid #C41945 !important;
+}
+
+
+
 .mb-20 {
   margin-bottom: 20px;
 }

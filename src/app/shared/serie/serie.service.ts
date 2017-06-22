@@ -1,14 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-
-import { API } from '../shared-variables';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
+import { API } from '../shared-variables';
 import { Serie } from '../../entity/serie';
-import { SERIES } from '../../entity/mock-serie';
 
 @Injectable()
 export class SerieService {
@@ -21,7 +18,6 @@ export class SerieService {
           'X-BetaSeries-Key': API.apiKey,
       })
   });
-
 
   searchSeries(searchTerm): Observable<Serie[]> {
     const apiLink = this.link + searchTerm;
@@ -39,18 +35,20 @@ export class SerieService {
     });
   }
 
-  getSeries(): Promise<Serie[]> {
-    return Promise.resolve(SERIES);
+  getUserSeries(seriesId: string[]): Observable<Serie[]> {
+    const ids = seriesId.join();
+    return this._http.get('https://api.betaseries.com/shows/display?id=' + ids, this.options)
+                     .map((res: Response) => res.json().shows)
+                     .catch(this.handleError);
   }
 
   getSerie(serieId): Observable<Serie> {
     return this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
-                    .map((res: Response) => res.json().show)
-                    .catch(this.handleError);
+                     .map((res: Response) => res.json().show)
+                     .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
