@@ -7,47 +7,40 @@ const ERROR: string = "error";
 export class DataStorageService {
 
   // Rajoute de la données dans le local storage
-  addData(entity: any): string {
+  updateOrAddData(entity: any, nameComponent: string): string {
 
-    let nameClass: string = entity.constructor.name;
-
-    if(entity.hasOwnProperty('id') === false){
-      throw new Error('Attributes id doesnt exists on object entity');
-    }
-    
-    let allData: Array<any> = Object.keys(entity).filter(function(item) {return item !== 'id';}).map(function(key){
-      return [key, entity[key]];
-    });
-
-    localStorage.setItem(nameClass + '_' + entity['id'], JSON.stringify(allData));
+    let idStorage = nameComponent + '_' + entity[0]['id'];
+    localStorage.setItem(idStorage, JSON.stringify(entity));
     return SUCCESS;
 
   }
 
   // Remove les données stockées dans le local storage
-  removeData(entity: any): string {
+  removeData(entity: object, nameComponent:string): string {
 
-    let nameClass: string = entity.constructor.name;
+    let idStorage = nameComponent + '_' + entity[0]['id'];
 
-    if(entity.hasOwnProperty('id') === false){
-      throw new Error('Attributes id doesnt exists on object entity');
+    if(null === localStorage.getItem(idStorage)){
+      throw new Error('This object doesnt exist on the storage');
     }
 
-    localStorage.removeItem(nameClass + '_' + entity['id']);
+    localStorage.removeItem(idStorage);
     return SUCCESS;
   }
 
   // Récupère les données stockées dans le local storage
-  getData(entity: any): any {
-    
-    let nameClass: string = entity.constructor.name;
-    let data: object;
+  getData(entity: object, nameComponent:string): any {
 
-    if(entity.hasOwnProperty('id') === false){
-      throw new Error('Attributes id doesnt exists on object entity');
+    let dataComponent: object = entity[0];
+    let idStorage = nameComponent + '_' + dataComponent['id'];
+    let data: string;
+
+    if(null === localStorage.getItem(idStorage)){
+      throw new Error('This object doesnt exist on the storage');
     }
 
-    data = JSON.parse(localStorage.getItem(nameClass + '_' + entity['id']));
+    data = JSON.parse(localStorage.getItem(idStorage));
+    console.log(data);
     return data;
   }
 

@@ -1,3 +1,18 @@
-<p>
-  serie works!
-</p>
+<div>
+  <label>Serie name:</label> <input #serieName />
+  <button (click)="addSerie(); serieName.value=''">
+    Add
+  </button>
+</div>
+<div>
+  <label>Serie name:</label> <input #serieName />
+  <button (click)="deleteSerie(); serieName.value=''">
+    delete
+  </button>
+</div>
+<div>
+  <label>Serie name:</label> <input #serieName />
+  <button (click)="getSerie(); serieName.value=''">
+    GET
+  </button>
+</div>
