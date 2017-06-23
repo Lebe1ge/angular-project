@@ -9,14 +9,14 @@
         <a [routerLink]="['/serie', serie.id]" class="btn btn-primary">Afficher</a>
       </p>
       <div *ngIf="auth.isAuthenticated()">
-        <div *ngIf="!serie.favorite" class="row">
+        <div *ngIf="!serie?.favorite" class="row" >
           <p class="text-center">
             <a (click)="addToFavorite(serie)" class="btn btn-primary">
                   Suivre la série
               </a>
           </p>
         </div>
-        <div *ngIf="serie.favorite" class="row">
+        <div *ngIf="serie?.favorite" class="row" >
           <p class="text-center">
             <a (click)="removeFavorite(serie); serieelement.remove()" class="btn btn-primary">
                   Ne plus suivre

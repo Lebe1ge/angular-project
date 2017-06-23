@@ -4,6 +4,8 @@ import { Serie } from '../../entity/serie';
 import { SerieService } from '../serie/serie.service';
 import {DataStorageService} from '../../data-storage.service';
 
+const KEY_STORAGE_SERIES = "MySeries";
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -22,6 +24,7 @@ export class SearchComponent implements OnInit {
         .searchDetailSerie(serie.id)
         .subscribe(res => {
           serie.image = res.images.poster;
+          this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIES);
           if (this.DataStorageService.getById(serie.id)) {
             serie.favorite = true;
           }

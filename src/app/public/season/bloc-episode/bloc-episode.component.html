@@ -3,7 +3,18 @@
     <p class="episode-name text-uppercase mt-20">
       <strong>Episode n°  {{ episode.episode }} : </strong><br/> {{ episode.title }}
     </p>
-    <a routerLink="/episode/{{ episode.id }}" class="btn btn-primary">Voir</a>
-    <a href="" *ngIf="auth.isAuthenticated()" class="mark-as-seen btn btn-primary">Episode vu</a>
+
+    <a routerLink="/episode/{{ episode.id }}" class="btn btn-primary" >Voir</a>
+
+    <div *ngIf="auth.isAuthenticated()">
+        <div *ngIf="episode.seen">
+            <a (click)="removeSeen(episode)" class="btn btn-primary" >
+                Episode vu
+            </a>
+        </div>
+        <div *ngIf="!episode.seen">
+          <a (click)="addToSeen(episode)" class="mark-as-seen btn btn-primary" >Marquer l'épisode comme vu</a>
+        </div>
+    </div>
   </div>
 </div>

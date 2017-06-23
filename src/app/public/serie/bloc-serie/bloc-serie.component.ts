@@ -4,6 +4,8 @@ import { AuthService } from '../../../shared/auth/auth.service';
 import { DataStorageService } from '../../../data-storage.service';
 import { Router } from '@angular/router';
 
+const KEY_STORAGE_SERIE = 'MySeries';
+
 @Component({
   selector: 'app-bloc-serie',
   templateUrl: './bloc-serie.component.html',
@@ -26,6 +28,7 @@ export class BlocSerieComponent implements OnInit {
     }
 
     serie.favorite = true;
+    this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);
     this.DataStorageService.add(serie.id);
   }
 
@@ -33,6 +36,7 @@ export class BlocSerieComponent implements OnInit {
     if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
+    this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);
     this.DataStorageService.getAllData();
   }
 
@@ -44,7 +48,8 @@ export class BlocSerieComponent implements OnInit {
     if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
-    this.DataStorageService.getById(id);
+    this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);
+    this.DataStorageService.getById(id);  
   }
 
   /**
@@ -57,6 +62,7 @@ export class BlocSerieComponent implements OnInit {
       this.router.navigate(['/']);
     }
     serie.favorite = false;
+    this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);
     this.DataStorageService.removeData(serie.id);
   }
 

@@ -6,4 +6,5 @@ export class Episode {
   image: string;
   season: string;
   viewers: number;
+  seen: boolean;
 }
