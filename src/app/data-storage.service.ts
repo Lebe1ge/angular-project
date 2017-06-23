@@ -69,7 +69,6 @@ export class DataStorageService {
    * @return bool
    */
   getById(id: number): any {
-    console.log(this.keyStorage);
     let data = JSON.parse(localStorage.getItem(this.keyStorage));
     if(!data) {
       return false;

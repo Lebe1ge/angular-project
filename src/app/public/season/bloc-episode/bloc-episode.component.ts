@@ -4,6 +4,8 @@ import {AuthService} from '../../../shared/auth/auth.service';
 import {Episode} from '../../../entity/episode';
 import {DataStorageService} from '../../../data-storage.service';
 
+const KEY_STORAGE_EPISODES = 'MyEpisodes';
+
 @Component({
   selector: 'app-bloc-episode',
   templateUrl: './bloc-episode.component.html',
@@ -75,7 +77,7 @@ export class BlocEpisodeComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.keyStorage = params['serieId'] + '_' + params['season'];
+      this.keyStorage = KEY_STORAGE_EPISODES;
     });
   }
 }

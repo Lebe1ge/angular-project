@@ -6,6 +6,8 @@ import {Serie} from '../../entity/serie';
 import {SerieService} from '../serie/serie.service';
 import {DataStorageService} from '../../data-storage.service';
 
+const KEY_STORAGE_EPISODES = 'MyEpisodes';
+
 @Component({
   selector: 'app-season',
   templateUrl: './season.component.html',
@@ -63,7 +65,7 @@ export class SeasonComponent implements OnInit {
       this.season = params['season'];
       this.getSerie();
       this.getEpisodes();
-      this.keyStorage = this.serieId + '_' + this.season;
+      this.keyStorage = KEY_STORAGE_EPISODES;
     });
   }
 
