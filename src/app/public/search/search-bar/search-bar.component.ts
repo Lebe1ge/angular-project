@@ -22,6 +22,9 @@ export class SearchBarComponent implements OnInit {
   @Output() seriesUpdate = new EventEmitter();
 
   // Methods
+  /**
+   * Recheche des séries
+   */
   searching(): void {
     this.isLoading = true;
     this.serieService

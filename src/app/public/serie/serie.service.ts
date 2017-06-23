@@ -19,6 +19,11 @@ export class SerieService {
     })
   });
 
+/**
+ * Cherche les series
+ * @param searchTerm 
+ * @return json
+ */
   searchSeries(searchTerm): Observable<Serie[]> {
     const apiLink = this.link + searchTerm;
     return this._http.get(apiLink, this.options)
@@ -27,6 +32,11 @@ export class SerieService {
       });
   }
 
+  /**
+   * Cherche les détails de la série
+   * @param id 
+   * @return json
+   */
   searchDetailSerie(id): Observable<any> {
     const apiLink = 'https://api.betaseries.com/shows/display?v=2.4&id=' + id;
 
@@ -35,7 +45,12 @@ export class SerieService {
     });
   }
 
+  /**
+   * Cherche les séries ajouter par l'utilisateur
+   * @param seriesId 
+   */
   getUserSeries(seriesId: string[]): Observable<Serie[]> {
+    
     const ids = seriesId.join();
     return this._http.get('https://api.betaseries.com/shows/display?id=' + ids, this.options)
       .map((res: Response) => {
@@ -47,18 +62,32 @@ export class SerieService {
       .catch(this.handleError);
   }
 
+  /**
+   * Cherche une série à partir d'un id
+   * @param serieId 
+   * @return Observable
+   */
   getSerie(serieId): Observable<Serie> {
     return this._http.get('https://api.betaseries.com/shows/display?id=' + serieId, this.options)
       .map((res: Response) => res.json().show)
       .catch(this.handleError);
   }
 
+  /**
+   * Récupère les commentaires liés à la série
+   * @param serieId 
+   * @return Observable
+   */
   getSerieComment(serieId): Observable<Serie> {
     return this._http.get('https://api.betaseries.com/comments/comments?type=show&id=' + serieId, this.options)
       .map((res: Response) => res.json())
       .catch(this.handleError);
   }
 
+  /**
+   * Gère les erreurs liées à l'appel sur l'API
+   * @param error 
+   */
   private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {

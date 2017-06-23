@@ -63,6 +63,10 @@ export class DisplayEpisodeComponent implements OnInit {
     this.DataStorageService.removeData(episode.id);
   }
 
+  /**
+   * Récupère une série en fonction d'un épisode
+   * @param episodeId 
+   */
   getSerie(episodeId) {
     this.episodeService.getEpisode(episodeId)
       .subscribe(
@@ -70,6 +74,9 @@ export class DisplayEpisodeComponent implements OnInit {
         error =>  this.errorMessage = <any>error);
   }
 
+  /**
+   * Fonction permettant de revenir en arrière sur un élément du component
+   */
   goBack(): void {
     this.location.back();
   }

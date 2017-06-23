@@ -21,6 +21,9 @@ export class AuthService implements CanActivate {
 
     constructor(public router: Router) {}
 
+    /**
+     * Restriction sur les pages en fonction si l'utilisateur est connecté ou non
+     */
     canActivate() {
       if (this.isAuthenticated()) {
         return true;
@@ -34,6 +37,9 @@ export class AuthService implements CanActivate {
         this.auth0.authorize();
     }
 
+    /**
+     * Gère l'authentification
+     */
     public handleAuthentication(): void {
         this.auth0.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
@@ -47,6 +53,10 @@ export class AuthService implements CanActivate {
         });
     }
 
+    /**
+     * Récupère le profil de l'utilisateur
+     * @param cb 
+     */
     public getProfile(cb): void {
         const accessToken = localStorage.getItem('access_token');
         if (!accessToken) {
@@ -62,6 +72,10 @@ export class AuthService implements CanActivate {
         });
     }
 
+    /**
+     * Setter session
+     * @param authResult 
+     */
     private setSession(authResult): void {
         // Set the time that the access token will expire at
         const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
@@ -70,6 +84,9 @@ export class AuthService implements CanActivate {
         localStorage.setItem('expires_at', expiresAt);
     }
 
+    /**
+     * Déconnection de l'utilisateur
+     */
     public logout(): void {
         // Remove tokens and expiry time from localStorage
         localStorage.removeItem('access_token');
@@ -79,6 +96,9 @@ export class AuthService implements CanActivate {
         this.router.navigate(['/']);
     }
 
+    /**
+     * Savoir si l'utilisateur est connecté ou non
+     */
     public isAuthenticated(): boolean {
         // Check whether the current time is past the
         // access token's expiry time

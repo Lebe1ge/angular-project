@@ -23,6 +23,9 @@ export class SeasonComponent implements OnInit {
   episodes = [];
 
   // Methods
+  /**
+   * Récupère une série
+   */
   getSerie(): void {
     this
       .serieService
@@ -31,7 +34,9 @@ export class SeasonComponent implements OnInit {
         this.serie = serie;
       });
   }
-
+  /**
+   * Récupère les épisodes d'une série et d'une saison
+   */
   getEpisodes(): void {
     this
       .seasonService
@@ -48,6 +53,9 @@ export class SeasonComponent implements OnInit {
       });
   }
 
+  /**
+   * Fonction permettant de revenir à la page précédente sur un component
+   */
   goBack(): void {
     this.location.back();
   }

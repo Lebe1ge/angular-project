@@ -17,6 +17,10 @@ export class SearchComponent implements OnInit {
   series: Serie[] = [];
 
   // Methods
+  /**
+   * Met à jour la recherche
+   * @param series 
+   */
   handleSeriesUpdated(series) {
     this.series = series;
     for (let serie of series) {
