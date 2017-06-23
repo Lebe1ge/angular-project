@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Serie } from '../../../entity/serie';
 import { DataStorageService } from '../../../data-storage.service';
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-bloc-serie',
@@ -17,7 +18,7 @@ export class BlocSerieComponent implements OnInit {
   addToFavorite(id: string) :void{
     this.DataStorageService.add(id)
   }
-  
+
   allFavorite() :void {
     this.DataStorageService.getAllData();
   }
@@ -26,12 +27,14 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.getFavoriteById(id);
   }
 
-  removeFavorite(id: string) :void{
+  removeFavorite(id: string): void {
     this.DataStorageService.removeData(id);
   }
 
   // Lifecycle
-  constructor(private DataStorageService: DataStorageService) { }
+  constructor(
+    private DataStorageService: DataStorageService,
+    private auth: AuthService) { }
 
   ngOnInit() {
   }
