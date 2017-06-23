@@ -10,7 +10,7 @@ export class DataStorageService {
 
   /**
    * Ajout d'une donnée dans le localStorage
-   * @param id 
+   * @param id
    * @return string
    */
   add(id: number): string {
@@ -32,7 +32,7 @@ export class DataStorageService {
 
   /**
    * Suppression d'une donnée dans le localStorage
-   * @param id 
+   * @param id
    * @return string
    */
   // Remove les données stockées dans le local storage
@@ -64,8 +64,8 @@ export class DataStorageService {
   }
 
   /**
-   * Récupération des données en fonction d'un id 
-   * @param id 
+   * Récupération des données en fonction d'un id
+   * @param id
    * @return bool
    */
   getById(id: number): any {

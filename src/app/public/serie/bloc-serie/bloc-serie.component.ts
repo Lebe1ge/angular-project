@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Serie } from '../../../entity/serie';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../../shared/auth/auth.service';
 import { DataStorageService } from '../../../data-storage.service';
 import { Router } from '@angular/router';
 
@@ -19,13 +19,13 @@ export class BlocSerieComponent implements OnInit {
 
   /**
    * Ajoute aux favoris une série
-   * @param id 
+   * @param id
    */
   addToFavorite(serie: Serie): void {
 
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
-    }  
+    }
 
     serie.favorite = true;
     this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);
@@ -42,7 +42,7 @@ export class BlocSerieComponent implements OnInit {
 
   /**
    * Check si la série est déjà mis en favorite ou non
-   * @param id 
+   * @param id
    */
   isFavorite(id: number): void {
     if( !this.auth.isAuthenticated ) {
@@ -54,12 +54,12 @@ export class BlocSerieComponent implements OnInit {
 
   /**
    * Supprime la série des favoris
-   * @param id 
+   * @param id
    */
 
   removeFavorite(serie: Serie): void {
     if( !this.auth.isAuthenticated ) {
-      this.router.navigate(['/']);  
+      this.router.navigate(['/']);
     }
     serie.favorite = false;
     this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIE);

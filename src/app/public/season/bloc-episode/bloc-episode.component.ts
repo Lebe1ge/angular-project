@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router,ActivatedRoute, Params} from '@angular/router';
-import {AuthService} from '../../auth/auth.service';
+import {AuthService} from '../../../shared/auth/auth.service';
 import {Episode} from '../../../entity/episode';
 import {DataStorageService} from '../../../data-storage.service';
 
