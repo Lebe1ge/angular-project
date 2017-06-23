@@ -1,7 +1,7 @@
 <div id="serie" class="container">
   <div class="row mb-30">
     <div class="col-xs-12 col-sm-6 col-md-3 text-center mix">
-      <img src="{{ serie.images.poster }}" alt="">
+      <img src="{{ serie?.images.poster }}" alt="">
 
       <div *ngIf="auth.isAuthenticated()">
         <div *ngIf="!serie.favorite" class="row" >
@@ -19,24 +19,19 @@
           </p>
         </div>
       </div>
-
-      <!-- <a *ngIf="auth.isAuthenticated()" href="#" id="follow_button" class="btn btn-primary">
-          <span>Ne plus suivre</span>
-        </a> -->
-
       <p *ngIf="!auth.isAuthenticated()">Connectez-vous si vous voulez suivre cette série.</p>
-      <!-- {% endif %} -->
+
     </div>
     <div class="col-xs-12 col-sm-6 col-md-9">
-      <h1>{{ serie.title }}</h1>
+      <h1>{{ serie?.title }}</h1>
       <p class="genre">
-        Genre : <span *ngFor="let genre of serie.genres">{{ genre }} </span>
+        Genre : <span *ngFor="let genre of serie?.genres">{{ genre }} </span>
       </p>
       <p class="rating">
-        <strong>Vote :</strong> {{ serie.rating }}
+        <strong>Vote :</strong> {{ serie?.rating }}
       </p>
       <p class="description">
-        <strong>Description :</strong> {{ serie.description }}
+        <strong>Description :</strong> {{ serie?.description }}
       </p>
 
       <div id="seasons" class="row">
@@ -44,12 +39,12 @@
           <h3>Les saisons</h3>
         </div>
 
-        <div *ngFor="let seasons_details of serie.seasons_details" id="" class="mix col-xs-12 col-sm-6 col-md-4 col-lg-2 text-center mb-30">
+        <div *ngFor="let seasons_details of serie?.seasons_details" id="" class="mix col-xs-12 col-sm-6 col-md-4 col-lg-2 text-center mb-30">
           <!-- <img src="{{ season.image }}" alt=""> -->
           <br>
           <p class="season-number text-uppercase">Saison {{ seasons_details.number }}</p>
           <!-- <p class="text-uppercase">{{ season.name }}</p> -->
-          <a routerLink="/season/{{ serie.id }}/{{ seasons_details.number }}" class="show-season btn btn-primary">Voir</a>
+          <a routerLink="/season/{{ serie.id }}/{{ seasons_details.number }}" class="serie-season btn btn-primary">Voir</a>
         </div>
       </div>
       <!-- #seasons -->
@@ -57,41 +52,5 @@
   </div>
   <!-- .row .mb-30 -->
 
-  <div id="comments">
-    <!-- {% if app.user %}
-    <div id="comment_form" class="mb-30" >
-        <h3>Commentaires</h3>
-
-        {{ form_start(form) }}
-        {{ form_widget(form.content, { 'attr': {'placeholder': 'Commentaire'} }) }}
-        {{ form_widget(form.idSerie, { 'attr': {'placeholder': 'Détail du support', 'value': serie.id} }) }}
-
-        <input type="submit" value="Commenter" class="btn btn-primary" />
-        {{ form_end(form) }}
-    </div>
-    {% endif %}
-
-    {% for comment in comments %}
-        {% if comment.isVisible %}
-            <div class="comment row">
-                <div class="col-xs-12 col-md-3">
-                    <strong>
-                        {{comment.idUser.firstname}} {{comment.idUser.lastname}} le {{comment.createdAt|date("m/d/Y")}} :
-                    </strong>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    {{comment.content}}
-                </div>
-                {% if app.user.id == comment.idUser.id %}
-                    <div class="col-xs-12 col-md-3">
-                        {{ form_start(deleteForm[loop.index0]) }}
-                            <input type="submit" value="Delete">
-                        {{ form_end(deleteForm[loop.index0]) }}
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
-    {% endfor %} -->
-  </div>
 </div>
 <!-- #serie -->
