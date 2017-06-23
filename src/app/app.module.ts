@@ -11,6 +11,7 @@ import { SearchModule } from './public/search/search.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './public/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { CallbackComponent } from './shared/callback/callback.component';
 
 
 @NgModule({
@@ -24,6 +25,9 @@ import { HeaderComponent } from './shared/header/header.component';
     RouterModule.forRoot([
       { path: '',
         component: HomeComponent,
+      },
+      { path: 'callback',
+        component: CallbackComponent,
       }
     ]),
     PublicModule,
