@@ -30,7 +30,7 @@ export class DisplayEpisodeComponent implements OnInit {
    */
   addToSeen(episode: Episode): void {
 
-    if( !this.auth.isAuthenticated ) {
+    if ( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }
     episode.seen = true;
@@ -43,7 +43,7 @@ export class DisplayEpisodeComponent implements OnInit {
    * @param id
    */
   isSeen(id: number): void {
-    if( !this.auth.isAuthenticated ) {
+    if ( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }
     this.DataStorageService.setKeyStorage(this.keyStorage);
@@ -55,7 +55,7 @@ export class DisplayEpisodeComponent implements OnInit {
    * @param id
    */
   removeSeen(episode: Episode): void {
-    if( !this.auth.isAuthenticated ) {
+    if ( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }
     episode.seen = false;
