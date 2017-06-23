@@ -17,12 +17,12 @@ export class SearchComponent implements OnInit {
   // Methods
   handleSeriesUpdated(series) {
     this.series = series;
-    for(let serie of series ) {
+    for (let serie of series ) {
       this.serieService
         .searchDetailSerie(serie.id)
         .subscribe(res => {
           serie.image = res.images.poster;
-          if (this.DataStorageService.getFavoriteById(serie.id)) {
+          if (this.DataStorageService.getById(serie.id)) {
             serie.favorite = true;
           }
           serie.loaded = true;
