@@ -57,7 +57,7 @@ export class DataStorageService {
 
     let data = JSON.parse(localStorage.getItem(this.keyStorage));
     if(!data){
-      return ERROR;
+      return [];
     }
 
     return data;
