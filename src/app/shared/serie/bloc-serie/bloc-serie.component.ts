@@ -14,11 +14,11 @@ export class BlocSerieComponent implements OnInit {
   @Input() isLoading = true;
 
   // Methods
-  addToFavorite(id: string) :void{
+  addToFavorite(id: string): void {
     this.DataStorageService.add(id)
   }
-  
-  allFavorite() :void {
+
+  allFavorite(): void {
     this.DataStorageService.getAllData();
   }
 
@@ -26,7 +26,7 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.getFavoriteById(id);
   }
 
-  removeFavorite(id: string) :void{
+  removeFavorite(id: string): void {
     this.DataStorageService.removeData(id);
   }
 
