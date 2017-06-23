@@ -24,7 +24,6 @@ export class BlocEpisodeComponent implements OnInit {
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }  
-
     episode.seen = true;
     this.DataStorageService.setKeyStorage(this.keyStorage);
     this.DataStorageService.add(episode.id);
