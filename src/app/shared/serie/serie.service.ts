@@ -48,6 +48,12 @@ export class SerieService {
                      .catch(this.handleError);
   }
 
+  getSerieComment(serieId): Observable<Serie> {
+    return this._http.get('https://api.betaseries.com/comments/comments?type=show&id=' + serieId, this.options)
+                     .map((res: Response) => res.json())
+                     .catch(this.handleError);
+  }
+
   private handleError (error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
