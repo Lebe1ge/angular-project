@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix">
+  <div id="{{ episode.title }}" >
+    <p class="episode-name text-uppercase mt-20">
+      <strong>Episode n°  {{ episode.episode }} : </strong><br/>
+      {{ episode.title }}
+    </p>
+
+    <a href="" class="btn btn-primary" >Voir</a>
+
+    <a href="#" *ngIf="auth.isAuthenticated()" class="mark-as-seen btn btn-primary" >Episode vu</a>
+  </div>
+</div>

@@ -1,3 +1,36 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   line-height: 1;
+}
+
+a {
+   text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+   margin: 0;
+   font-weight: normal;
+}
+
+li {
+   list-style: none;
+}
+
+.mix img
+{
+   width: 100%;
+   height: auto;
+}
+
+.container {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
 /* You can add global styles to this file, and also import other style files */
 
 .btn-primary {

@@ -1,3 +1,7 @@
-<p>
-  season works!
-</p>
+
+<div id="episodes" class="container">
+  <h1>Saison n° {{ season }}</h1>
+  <div class="row">
+    <app-bloc-episode *ngFor="let episode of episodes;" [episode]="episode" ></app-bloc-episode>
+  </div>
+</div>
