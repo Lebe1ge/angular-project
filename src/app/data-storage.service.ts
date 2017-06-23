@@ -9,9 +9,9 @@ export class DataStorageService {
 
   // Rajoute de la données dans le local storage
   add(id: string): string {
-
+   
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
-
+    
     if(!data) {
       localStorage.setItem(KEY_STORAGE_FAVORITE, JSON.stringify([id]));
       return SUCCESS;
@@ -53,7 +53,7 @@ export class DataStorageService {
   // Récupère les données stockées dans le local storage
   getFavoriteById(id: number): any {
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
-    if( data.indexOf(id) == -1 ) {
+    if(data != null && data.indexOf(id) == -1 ) {
       return false;
     }
     return true;
