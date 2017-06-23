@@ -15,4 +15,5 @@ export class Serie {
   status: string;
   image: string;
   loaded: boolean;
+  favorite: boolean;
 }
