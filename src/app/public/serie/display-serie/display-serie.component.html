@@ -5,14 +5,14 @@
       <img src="{{ serie?.images.poster }}" alt="">
 
       <div *ngIf="auth.isAuthenticated()">
-        <div *ngIf="!serie.favorite" class="row" >
+        <div *ngIf="!serie?.favorite" class="row" >
           <p class="text-center">
             <a (click)="addToFavorite(serie)" id="follow_button" class="btn btn-primary follow" >
               <span>Suivre la série</span>
             </a>
           </p>
         </div>
-        <div *ngIf="serie.favorite" class="row" >
+        <div *ngIf="serie?.favorite" class="row" >
           <p class="text-center">
             <a (click)="removeFavorite(serie);" id="follow_button" class="btn btn-primary follow" >
               <span>Ne plus suivre</span>
