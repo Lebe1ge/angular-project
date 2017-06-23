@@ -11,28 +11,20 @@ import { Episode } from '../../entity/episode';
 
 @Injectable()
 export class EpisodeService {
-    link = 'https://api.betaseries.com/search/all?v=2.4&query=';
-    episode: Episode;
-    episodes = [];
-    options = new RequestOptions({
-        headers: new Headers({
-            'Accept': 'application/json',
-            'X-BetaSeries-Key': API.apiKey,
-        })
-    });
-
-
-  // getSeries(): Promise<Episode> {
-  //   return Promise.resolve(SERIES);
-  // }
+  options = new RequestOptions({
+    headers: new Headers({
+      'Accept': 'application/json',
+      'X-BetaSeries-Key': API.apiKey,
+    })
+  });
 
   getEpisode(episodeId): Observable<Episode> {
     return this._http.get('https://api.betaseries.com/episodes/display?id=' + episodeId, this.options)
-                    .map((res: Response) => res.json().episode)
-                    .catch(this.handleError);
+      .map((res: Response) => res.json().episode)
+      .catch(this.handleError);
   }
 
-  private handleError (error: Response | any) {
+  private handleError(error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
@@ -45,5 +37,5 @@ export class EpisodeService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  constructor (private _http: Http) {}
+  constructor(private _http: Http) { }
 }

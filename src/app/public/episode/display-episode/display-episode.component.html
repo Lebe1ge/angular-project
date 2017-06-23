@@ -1,21 +1,19 @@
 <div id="serie" class="container">
-    <div class="row">
-
-        <div class="col-xs-12 mb-30">
-            <h1>Episode n°{{ episode?.episode }} : {{ episode?.title }}</h1>
-            <h2>Saison n°{{ episode?.season }}</h2>
-            <p>Date de diffusion : {{ episode?.date }}</p>
-        </div>
-        <div class="mix col-xs-12 col-sm-6 col-md-3 text-center">
-            <p class="text-center" *ngIf="auth.isAuthenticated()">
-                <a href="#" class="mark-as-seen btn btn-primary mt-30" >Episode vu</a>
-            </p>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-9">
-            <p class="description">
-                <strong>Description :</strong>
-                {{ episode?.description }}
-            </p>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 mb-30">
+      <h1>Episode n°{{ episode?.episode }} : {{ episode?.title }}</h1>
+      <h2>Saison n°{{ episode?.season }}</h2>
+      <p>Date de diffusion : {{ episode?.date }}</p>
     </div>
+    <div class="mix col-xs-12 col-sm-6 col-md-3 text-center">
+      <p class="text-center" *ngIf="auth.isAuthenticated()">
+        <a href="#" class="mark-as-seen btn btn-primary mt-30">Episode vu</a>
+      </p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-9">
+      <p class="description">
+        <strong>Description :</strong> {{ episode?.description }}
+      </p>
+    </div>
+  </div>
 </div>

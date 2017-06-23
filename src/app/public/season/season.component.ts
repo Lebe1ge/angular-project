@@ -44,9 +44,9 @@ export class SeasonComponent implements OnInit {
 
   // Lifecycle
   constructor(private seasonService: SeasonService,
-              private serieService: SerieService,
-              private activatedRoute: ActivatedRoute,
-              private location: Location) { }
+    private serieService: SerieService,
+    private activatedRoute: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {

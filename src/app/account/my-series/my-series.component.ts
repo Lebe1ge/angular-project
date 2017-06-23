@@ -14,7 +14,7 @@ export class MySeriesComponent implements OnInit {
 
   handleSeriesUpdated(series) {
     this.series = series;
-    for(let serie of series ) {
+    for (let serie of series) {
       this.SerieService
         .searchDetailSerie(serie.id)
         .subscribe(res => {

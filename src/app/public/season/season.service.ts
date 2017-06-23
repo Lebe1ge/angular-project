@@ -23,7 +23,7 @@ export class SeasonService {
       });
   }
 
-  private handleError (error: Response | any) {
+  private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -35,6 +35,6 @@ export class SeasonService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-  constructor (private _http: Http) {}
+  constructor(private _http: Http) { }
 
 }

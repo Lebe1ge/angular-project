@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   // Methods
   handleSeriesUpdated(series) {
     this.series = series;
-    for (let serie of series ) {
+    for (let serie of series) {
       this.serieService
         .searchDetailSerie(serie.id)
         .subscribe(res => {
@@ -33,6 +33,6 @@ export class SearchComponent implements OnInit {
   // Lifecycle
   constructor(private serieService: SerieService, private DataStorageService: DataStorageService) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
 }

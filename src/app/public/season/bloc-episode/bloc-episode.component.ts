@@ -14,7 +14,6 @@ export class BlocEpisodeComponent implements OnInit {
 
   // Methods
 
-
   // Lifecycle
   constructor(private auth: AuthService) { }
 

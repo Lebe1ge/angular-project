@@ -21,12 +21,12 @@ export class MySerieOutputComponent implements OnInit {
 
   ngOnInit() {
     this.SerieService
-    .getUserSeries(this.DataStorageService.getAllData())
-    .subscribe(series => {
-      this.series = series;
-      this.seriesUpdate.emit(series);
-      this.isLoading = false;
-    });
+      .getUserSeries(this.DataStorageService.getAllData())
+      .subscribe(series => {
+        this.series = series;
+        this.seriesUpdate.emit(series);
+        this.isLoading = false;
+      });
   }
 
 }

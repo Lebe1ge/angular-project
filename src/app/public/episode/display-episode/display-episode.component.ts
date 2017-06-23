@@ -26,8 +26,8 @@ export class DisplayEpisodeComponent implements OnInit {
 
   getSerie(episodeId) {
     this.episodeService.getEpisode(episodeId)
-    .subscribe(
+      .subscribe(
       episode => this.episode = episode,
-      error =>  this.errorMessage = <any>error);
+      error => this.errorMessage = <any>error);
   }
 }

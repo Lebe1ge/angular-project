@@ -1,33 +1,22 @@
 <div id="episodes" class="container">
-    <div *ngFor="let episode of episodes; let i=index">
-        Si i est différent de episode.saison alors on affiche
-            i=episode.saison
-            <div class="row" *ngIf="i != episode.saison">
-            <div class="col-xs-12">
-                <h1>Saison n°{{ episode.saison }}</h1>
-            </div>
-        </div>
-
-        <div class="row">
-            <div id="{{ episode.title }}" class="episode col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <p class="episode-name text-uppercase mt-20">
-                    <strong>Episode n°{{ episode.episode }} : </strong><br/>
-                    {{ episode.title }}
-                </p>
-                <!--
-            {% if episode.image is not null %}
-            <img src="{{ episode.image }}" alt="" >
-            {% else %}
-            {% image '@AppBundle/Resources/images/no_image.jpg' output='/images/no_image.jpg' %}
-            <img src="{{ asset_url }}" alt="Ceci n'est pas une image"/>
-            {% endimage %}
-            {% endif %}-->
-
-            <a href="" class="btn btn-primary" >Voir</a>
-
-            <a href="#" *ngIf="auth.isAuthenticated()" class="mark-as-seen btn btn-primary" >Episode vu</a>
-        </div>
+  <div *ngFor="let episode of episodes; let i=index">
+    Si i est différent de episode.saison alors on affiche i=episode.saison
+    <div class="row" *ngIf="i != episode.saison">
+      <div class="col-xs-12">
+        <h1>Saison n°{{ episode.saison }}</h1>
+      </div>
     </div>
 
-</div>
+    <div class="row">
+      <div id="{{ episode.title }}" class="episode col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <p class="episode-name text-uppercase mt-20">
+          <strong>Episode n°{{ episode.episode }} : </strong><br/> {{ episode.title }}
+        </p>
+        <a href="" class="btn btn-primary">Voir</a>
+
+        <a href="#" *ngIf="auth.isAuthenticated()" class="mark-as-seen btn btn-primary">Episode vu</a>
+      </div>
+    </div>
+
+  </div>
 </div>

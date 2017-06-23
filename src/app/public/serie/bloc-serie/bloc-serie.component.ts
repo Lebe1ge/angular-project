@@ -21,7 +21,7 @@ export class BlocSerieComponent implements OnInit {
    */
   addToFavorite(serie: Serie): void {
 
-    if( !this.auth.isAuthenticated ) {
+    if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
 
@@ -29,8 +29,8 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.add(serie.id);
   }
 
-  allFavorite() :void {
-    if( !this.auth.isAuthenticated ) {
+  allFavorite(): void {
+    if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
     this.DataStorageService.getAllData();
@@ -41,7 +41,7 @@ export class BlocSerieComponent implements OnInit {
    * @param id
    */
   isFavorite(id: number): void {
-    if( !this.auth.isAuthenticated ) {
+    if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
     this.DataStorageService.getById(id);
@@ -53,7 +53,7 @@ export class BlocSerieComponent implements OnInit {
    */
 
   removeFavorite(serie: Serie): void {
-    if( !this.auth.isAuthenticated ) {
+    if (!this.auth.isAuthenticated) {
       this.router.navigate(['/']);
     }
     serie.favorite = false;

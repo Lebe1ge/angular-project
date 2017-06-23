@@ -8,9 +8,9 @@ describe('ListeSerieComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListeSerieComponent ]
+      declarations: [ListeSerieComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
