@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute, Params} from '@angular/router';
 import {AuthService} from '../../auth/auth.service';
 import {Episode} from '../../../entity/episode';
 import {DataStorageService} from '../../../data-storage.service';
@@ -12,61 +12,71 @@ import {DataStorageService} from '../../../data-storage.service';
 export class BlocEpisodeComponent implements OnInit {
 
   // Attributes
+  keyStorage: string;
   @Input() episode;
 
   /**
-   * Ajoute aux favoris une série
+   * Ajoute un épisode dans ceux qui sont vus
    * @param id 
    */
-  addToFavorite(episode: Episode): void {
+  addToSeen(episode: Episode): void {
 
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }  
 
     episode.seen = true;
+    this.DataStorageService.setKeyStorage(this.keyStorage);
     this.DataStorageService.add(episode.id);
   }
 
   /**
-   * Récupère tous les favoris
+   * Récupère tous les épisodes vus d'une série
    */
-  allFavorite() :void {
+  allSeen() :void {
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }
+    this.DataStorageService.setKeyStorage(this.keyStorage);
     this.DataStorageService.getAllData();
   }
 
   /**
-   * Check si la série est déjà mis en favorite ou non
+   * Check si l'épisode a déjà été vu
    * @param id 
    */
-  isFavorite(id: number): void {
+  isSeen(id: number): void {
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
     }
+    this.DataStorageService.setKeyStorage(this.keyStorage);
     this.DataStorageService.getById(id);  
   }
 
   /**
-   * Supprime la série des favoris
+   * Supprime l'épisode des épisodes vus
    * @param id 
    */
-
-  removeFavorite(episode: Episode): void {
+  removeSeen(episode: Episode): void {
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);  
     }
     episode.seen = false;
+    this.DataStorageService.setKeyStorage(this.keyStorage);
     this.DataStorageService.removeData(episode.id);
   }
 
 
   // Lifecycle
-  constructor(private auth: AuthService, private DataStorageService: DataStorageService, private router: Router) { }
+  constructor(
+  private auth: AuthService, 
+  private DataStorageService: DataStorageService, 
+  private router: Router,
+  private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.keyStorage = params['serieId'] + '_' + params['season'];
+    });
   }
-
 }
