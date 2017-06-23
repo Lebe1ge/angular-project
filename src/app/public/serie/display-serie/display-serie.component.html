@@ -3,9 +3,22 @@
     <div class="col-xs-12 col-sm-6 col-md-3 text-center mix">
       <img src="{{ serie.images.poster }}" alt="">
 
-      <a *ngIf="auth.isAuthenticated()" href="#" id="follow_button" class="btn btn-primary follow">
-          <span>Suivre cette série</span>
-        </a>
+      <div *ngIf="auth.isAuthenticated()">
+        <div *ngIf="!serie.favorite" class="row" >
+          <p class="text-center">
+            <a (click)="addToFavorite(serie)" id="follow_button" class="btn btn-primary follow" >
+              <span>Suivre la série</span>
+            </a>
+          </p>
+        </div>
+        <div *ngIf="serie.favorite" class="row" >
+          <p class="text-center">
+            <a (click)="removeFavorite(serie);" id="follow_button" class="btn btn-primary follow" >
+              <span>Ne plus suivre</span>
+            </a>
+          </p>
+        </div>
+      </div>
 
       <!-- <a *ngIf="auth.isAuthenticated()" href="#" id="follow_button" class="btn btn-primary">
           <span>Ne plus suivre</span>
