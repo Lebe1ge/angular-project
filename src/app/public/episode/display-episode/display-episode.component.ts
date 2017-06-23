@@ -3,8 +3,8 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import { Episode } from '../../../entity/episode';
 
-import { AuthService } from './../../auth/auth.service';
-import { EpisodeService } from '../../../shared/episode/episode.service';
+import { AuthService } from '../../../shared/auth/auth.service';
+import { EpisodeService } from '..//episode.service';
 
 @Component({
   selector: 'app-shared-display-episode',

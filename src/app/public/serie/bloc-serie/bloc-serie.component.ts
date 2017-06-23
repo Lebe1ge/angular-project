@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Serie } from '../../../entity/serie';
 import { DataStorageService } from '../../../data-storage.service';
-import {AuthService} from "../../auth/auth.service";
+import { AuthService } from '../../../shared/auth/auth.service';
 
 @Component({
   selector: 'app-bloc-serie',

@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
-import { SeasonComponent } from '../shared/season/season.component';
-import { ShowSerieComponent } from './show-serie/show-serie.component';
-import { ShowEpisodeComponent } from './show-episode/show-episode.component';
+import { SeasonComponent } from './season/season.component';
+import { DisplayEpisodeComponent } from './episode/display-episode/display-episode.component';
+import { DisplaySerieComponent } from './serie/display-serie/display-serie.component';
 
 const routes: Routes = [
   {
@@ -16,10 +16,10 @@ const routes: Routes = [
     component: SearchComponent,
   },
   { path: 'serie/:serieId',
-    component: ShowSerieComponent,
+    component: DisplaySerieComponent,
   },
   { path: 'episode/:episodeId',
-    component: ShowEpisodeComponent,
+    component: DisplayEpisodeComponent,
   },
   {
     path: 'season/:serieId/:season',

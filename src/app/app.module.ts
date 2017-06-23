@@ -6,11 +6,10 @@ import { RouterModule } from '@angular/router';
 import { PublicModule } from './public/public.module';
 import { AccountModule } from './account/account.module';
 import { SharedModule } from './shared/shared.module';
+import { SearchModule } from './public/search/search.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './public/home/home.component';
-import { SearchComponent } from './public/search/search.component';
-import { SearchModule } from './public/search/search.module';
 import { HeaderComponent } from './shared/header/header.component';
 
 

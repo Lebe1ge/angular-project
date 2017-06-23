@@ -5,12 +5,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { MySeriesComponent } from './my-series/my-series.component';
 import { SharedModule } from '../shared/shared.module';
 import { MySerieOutputComponent } from './my-series/my-serie-output/my-serie-output.component';
+import {PublicModule} from '../public/public.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AccountRoutingModule,
-    SharedModule
+    SharedModule,
+    PublicModule
   ],
   declarations: [
     ProfileComponent,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 
-import { API } from '../shared-variables';
+import { API } from '../../shared/shared-variables';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';

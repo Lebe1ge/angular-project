@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Serie } from '../../entity/serie';
-import { SerieService } from '../../shared/serie/serie.service';
+import { SerieService } from '../../public/serie/serie.service';
 import { DataStorageService } from '../../data-storage.service';
 
 @Component({

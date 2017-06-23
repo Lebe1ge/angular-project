@@ -6,7 +6,7 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/filter';
 
 import {Serie} from '../../../entity/serie';
-import { SerieService } from '../../../shared/serie/serie.service';
+import { SerieService } from '../../serie/serie.service';
 
 @Component({
   selector: 'app-search-bar',
