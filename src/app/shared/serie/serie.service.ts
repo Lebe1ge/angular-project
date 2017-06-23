@@ -38,7 +38,12 @@ export class SerieService {
   getUserSeries(seriesId: string[]): Observable<Serie[]> {
     const ids = seriesId.join();
     return this._http.get('https://api.betaseries.com/shows/display?id=' + ids, this.options)
-                     .map((res: Response) => res.json().shows)
+                     .map((res: Response) => {
+                        if (seriesId.length > 1) {
+                          return res.json().shows;
+                        }
+                        return [ res.json().show ];
+                     })
                      .catch(this.handleError);
   }
 

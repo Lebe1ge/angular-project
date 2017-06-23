@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { CanActivate } from '@angular/router';
 import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements CanActivate {
 
     auth0 = new auth0.WebAuth({
         clientID: AUTH_CONFIG.clientID,
@@ -19,6 +20,15 @@ export class AuthService {
     userProfile: any;
 
     constructor(public router: Router) {}
+
+    canActivate() {
+      if (this.isAuthenticated()) {
+        return true;
+      } else {
+        this.auth0.authorize();  // redirect to login page
+        return false;
+      }
+    }
 
     public login(): void {
         this.auth0.authorize();
