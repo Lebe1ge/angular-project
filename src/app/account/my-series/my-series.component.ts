@@ -12,11 +12,18 @@ export class MySeriesComponent implements OnInit {
 
   @Input() series: Serie[];
 
+  handleSeriesUpdated(series) {
+    this.series = series;
+    for(let serie of series ) {
+      this.SerieService
+        .searchDetailSerie(serie.id)
+        .subscribe(res => { serie.image = res.images.poster; serie.loaded = true; });
+    }
+  }
+
   constructor(private SerieService: SerieService, private DataStorageService: DataStorageService) { }
 
   ngOnInit() {
-    console.log("LOOOOL");
-    console.log(this.SerieService.getUserSeries(this.DataStorageService.getAllData()));
   }
 
 }

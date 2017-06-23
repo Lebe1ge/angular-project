@@ -55,7 +55,7 @@ import { SerieBannerComponent } from './serie/serie-banner/serie-banner.componen
   ]
 })
 export class SharedModule {
-    constructor(public auth: AuthService) {
+    constructor(public auth: AuthService ) {
         auth.handleAuthentication();
     }
 }
