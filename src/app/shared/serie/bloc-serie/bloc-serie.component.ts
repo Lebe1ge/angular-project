@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Serie } from '../../../entity/serie';
 import { DataStorageService } from '../../../data-storage.service';
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-bloc-serie',
@@ -14,11 +15,12 @@ export class BlocSerieComponent implements OnInit {
   @Input() isLoading = true;
 
   // Methods
-  addToFavorite(id: string) :void{
-    this.DataStorageService.add(id)
+  addToFavorite(serie: Serie): void {
+    serie.favorite = true;
+    this.DataStorageService.add(serie.id);
   }
-  
-  allFavorite() :void {
+
+  allFavorite(): void {
     this.DataStorageService.getAllData();
   }
 
@@ -26,12 +28,15 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.getFavoriteById(id);
   }
 
-  removeFavorite(id: string) :void{
-    this.DataStorageService.removeData(id);
+  removeFavorite(serie: Serie): void {
+    serie.favorite = false;
+    this.DataStorageService.removeData(serie.id);
   }
 
   // Lifecycle
-  constructor(private DataStorageService: DataStorageService) { }
+  constructor(
+    private DataStorageService: DataStorageService,
+    private auth: AuthService) { }
 
   ngOnInit() {
   }

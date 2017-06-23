@@ -17,7 +17,13 @@ export class MySeriesComponent implements OnInit {
     for(let serie of series ) {
       this.SerieService
         .searchDetailSerie(serie.id)
-        .subscribe(res => { serie.image = res.images.poster; serie.loaded = true; });
+        .subscribe(res => {
+          serie.image = res.images.poster;
+          if (this.DataStorageService.getFavoriteById(serie.id)) {
+            serie.favorite = true;
+          }
+          serie.loaded = true;
+        });
     }
   }
 
