@@ -10,7 +10,6 @@ const nameService = 'serie';
   templateUrl: './serie.component.html',
   styleUrls: ['./serie.component.css']
 })
-
 export class SerieComponent implements OnInit {
 
   // Attributes
