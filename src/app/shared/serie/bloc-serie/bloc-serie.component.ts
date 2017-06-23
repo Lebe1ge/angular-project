@@ -2,7 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Serie } from '../../../entity/serie';
 import { AuthService } from '../../auth/auth.service';
 import { DataStorageService } from '../../../data-storage.service';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+import {AuthService} from "../../auth/auth.service";
+>>>>>>> 3dfe6aec175de4fa3ce7a62dd2b1e6aa27b4726a
 
 @Component({
   selector: 'app-bloc-serie',
@@ -15,6 +19,7 @@ export class BlocSerieComponent implements OnInit {
   @Input() serie: Serie;
   @Input() isLoading = true;
 
+<<<<<<< HEAD
   /**
    * Ajoute aux favoris une série
    * @param id 
@@ -29,6 +34,14 @@ export class BlocSerieComponent implements OnInit {
   /**
    * Récupère tous les favoris d'une personne
    */
+=======
+  // Methods
+  addToFavorite(serie: Serie) :void{
+    serie.favorite = true;
+    this.DataStorageService.add(serie.id);
+  }
+
+>>>>>>> 3dfe6aec175de4fa3ce7a62dd2b1e6aa27b4726a
   allFavorite() :void {
     if( !this.auth.isAuthenticated ) {
       this.router.navigate(['/']);
@@ -47,6 +60,7 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.getById(id);  
   }
 
+<<<<<<< HEAD
   /**
    * Supprime la série des favoris
    * @param id 
@@ -60,6 +74,17 @@ export class BlocSerieComponent implements OnInit {
 
   // Lifecycle
   constructor(private DataStorageService: DataStorageService, private auth: AuthService, private router: Router) { }
+=======
+  removeFavorite(serie: Serie): void {
+    serie.favorite = false;
+    this.DataStorageService.removeData(serie.id);
+  }
+
+  // Lifecycle
+  constructor(
+    private DataStorageService: DataStorageService,
+    private auth: AuthService) { }
+>>>>>>> 3dfe6aec175de4fa3ce7a62dd2b1e6aa27b4726a
 
   ngOnInit() {
   }

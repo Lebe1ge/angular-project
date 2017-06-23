@@ -12,7 +12,7 @@ export class DataStorageService {
    * @param id 
    * @return string
    */
-  add(id: string): string {
+  add(id: number): string {
 
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
 
@@ -34,7 +34,8 @@ export class DataStorageService {
    * @param id 
    * @return string
    */
-  removeData(id: string): string {
+  // Remove les données stockées dans le local storage
+  removeData(id: number): string {
 
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
 
@@ -68,10 +69,7 @@ export class DataStorageService {
    */
   getById(id: number): any {
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
-    if( data.indexOf(id) == -1 ) {
-      return false;
-    }
-    return true;
+    return data.indexOf(id) > -1;
   }
 
 }
