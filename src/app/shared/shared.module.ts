@@ -10,6 +10,7 @@ import { AuthService } from './auth/auth.service';
 import { SerieService } from './serie/serie.service';
 import { EpisodeService } from './episode/episode.service';
 import { DataStorageService } from '../data-storage.service';
+import { SeasonService} from './season/season.service';
 
 import { SeasonComponent } from './season/season.component';
 import { EpisodeComponent } from './episode/episode.component';
@@ -17,6 +18,7 @@ import { ListeSerieComponent } from './serie/liste-serie/liste-serie.component';
 import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
 import { DisplayEpisodeComponent } from './episode/display-episode/display-episode.component';
 import { DisplaySerieComponent } from './serie/display-serie/display-serie.component';
+import { BlocEpisodeComponent } from './season/bloc-episode/bloc-episode.component';
 
 @NgModule({
   imports: [
@@ -32,13 +34,15 @@ import { DisplaySerieComponent } from './serie/display-serie/display-serie.compo
     ListeSerieComponent,
     BlocSerieComponent,
     DisplayEpisodeComponent,
-    DisplaySerieComponent
+    DisplaySerieComponent,
+    BlocEpisodeComponent
   ],
   providers: [
     SerieService,
+    SeasonService,
     EpisodeService,
     AuthService,
-    DataStorageService
+    DataStorageService,
   ],
   exports: [
     ListeSerieComponent,
