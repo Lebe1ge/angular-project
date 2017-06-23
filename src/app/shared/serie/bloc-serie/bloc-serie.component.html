@@ -14,14 +14,14 @@
       <div *ngIf="auth.isAuthenticated()">
         <div *ngIf="!serie.favorite" class="row" >
           <p class="text-center">
-              <a (click)="addToFavorite(serie.id)" class="btn btn-primary" >
+              <a (click)="addToFavorite(serie)" class="btn btn-primary" >
                   Suivre la série
               </a>
           </p>
         </div>
         <div *ngIf="serie.favorite" class="row" >
           <p class="text-center">
-              <a (click)="removeFavorite(serie.id)" class="btn btn-primary" >
+              <a (click)="removeFavorite(serie)" class="btn btn-primary" >
                   Ne plus suivre
               </a>
           </p>

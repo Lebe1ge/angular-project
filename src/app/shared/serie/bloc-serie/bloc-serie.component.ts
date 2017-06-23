@@ -15,8 +15,9 @@ export class BlocSerieComponent implements OnInit {
   @Input() isLoading = true;
 
   // Methods
-  addToFavorite(id: string) :void{
-    this.DataStorageService.add(id)
+  addToFavorite(serie: Serie) :void{
+    serie.favorite = true;
+    this.DataStorageService.add(serie.id);
   }
 
   allFavorite() :void {
@@ -27,8 +28,9 @@ export class BlocSerieComponent implements OnInit {
     this.DataStorageService.getFavoriteById(id);
   }
 
-  removeFavorite(id: string): void {
-    this.DataStorageService.removeData(id);
+  removeFavorite(serie: Serie): void {
+    serie.favorite = false;
+    this.DataStorageService.removeData(serie.id);
   }
 
   // Lifecycle

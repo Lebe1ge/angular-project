@@ -20,11 +20,11 @@ export class SerieComponent implements OnInit {
 
   // Lifecycle
 
-  addSerie(id: string): void {
+  addSerie(id: number): void {
     this.DataStorageService.add(id);
   }
 
-  deleteSerie(id: string): void {
+  deleteSerie(id: number): void {
     this.DataStorageService.removeData(id);
   }
 
@@ -32,7 +32,7 @@ export class SerieComponent implements OnInit {
     this.DataStorageService.getAllData()
   }
 
-  constructor(private SerieService: SerieService, private ActivatedRoute: ActivatedRoute, private DataStorageService: DataStorageService) {} 
+  constructor(private SerieService: SerieService, private ActivatedRoute: ActivatedRoute, private DataStorageService: DataStorageService) {}
 
   ngOnInit() {
   }
