@@ -32,8 +32,15 @@ export class DisplaySerieComponent implements OnInit {
   getSerie(serieId) {
     this.serieService.getSerie(serieId)
       .subscribe(
-        serie => this.serie = serie,
-        error =>  this.errorMessage = <any>error);
+        serie => {
+          if (this.dataStorageService.getById(serie.id)) {
+            serie.favorite = true;
+          }
+          this.serie = serie;
+        },
+        error => {
+          this.errorMessage = <any>error
+        });
   }
 
   // Lifecycle
