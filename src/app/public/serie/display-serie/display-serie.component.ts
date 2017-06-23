@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Serie } from '../../../entity/serie';
 
 import { AuthService } from '../../../shared/auth/auth.service';
 import { SerieService } from '..//serie.service';
-import {DataStorageService} from '../../../data-storage.service';
+import { DataStorageService } from '../../../data-storage.service';
 
 @Component({
   selector: 'app-shared-display-serie',
@@ -32,8 +33,19 @@ export class DisplaySerieComponent implements OnInit {
   getSerie(serieId) {
     this.serieService.getSerie(serieId)
       .subscribe(
-        serie => this.serie = serie,
-        error =>  this.errorMessage = <any>error);
+        serie => {
+          if (this.dataStorageService.getById(serie.id)) {
+            serie.favorite = true;
+          }
+          this.serie = serie;
+        },
+        error => {
+          this.errorMessage = <any>error
+        });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   // Lifecycle
@@ -41,7 +53,8 @@ export class DisplaySerieComponent implements OnInit {
     public auth: AuthService,
     private activatedRoute: ActivatedRoute,
     private serieService: SerieService,
-    private dataStorageService: DataStorageService) { };
+    private dataStorageService: DataStorageService,
+    private location: Location) { };
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
