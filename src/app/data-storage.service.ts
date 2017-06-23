@@ -7,11 +7,7 @@ const KEY_STORAGE_FAVORITE: string = "mySeries";
 @Injectable()
 export class DataStorageService {
 
-  /**
-   * Ajout d'une donnée dans le localStorage
-   * @param id 
-   * @return string
-   */
+  // Rajoute de la données dans le local storage
   add(id: number): string {
 
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
@@ -29,11 +25,6 @@ export class DataStorageService {
     return ERROR;
   }
 
-  /**
-   * Suppression d'une donnée dans le localStorage
-   * @param id 
-   * @return string
-   */
   // Remove les données stockées dans le local storage
   removeData(id: number): string {
 
@@ -48,10 +39,7 @@ export class DataStorageService {
     return ERROR;
   }
 
-  /**
-   * Récupération des données dans le localStorage
-   * @return mixed
-   */
+  // Récupère les données stockées dans le local storage
   getAllData(): any {
 
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
@@ -62,12 +50,8 @@ export class DataStorageService {
     return data;
   }
 
-  /**
-   * Récupération des données en fonction d'un id 
-   * @param id 
-   * @return bool
-   */
-  getById(id: number): any {
+  // Récupère les données stockées dans le local storage
+  getFavoriteById(id: number): any {
     let data = JSON.parse(localStorage.getItem(KEY_STORAGE_FAVORITE));
     return data.indexOf(id) > -1;
   }
