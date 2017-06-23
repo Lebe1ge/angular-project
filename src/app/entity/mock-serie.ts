@@ -15,7 +15,6 @@ export const SERIES: Serie[] = [
     length: '50',
     status: 'Série diffusée actuellement' ,
     image: 'https://www.betaseries.com/images/fonds/poster/176941.jpg',
-    loaded: false,
-    favorite: true
+    loaded: false
   },
 ];

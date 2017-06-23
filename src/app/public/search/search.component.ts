@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   // Methods
   handleSeriesUpdated(series) {
     this.series = series;
-    for(let serie of series ) {
+    for (let serie of series ) {
       this.serieService
         .searchDetailSerie(serie.id)
         .subscribe(res => {
