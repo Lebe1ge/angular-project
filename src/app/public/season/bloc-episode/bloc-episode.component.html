@@ -9,7 +9,7 @@
 
     <div *ngIf="auth.isAuthenticated()">
         <div *ngIf="episode.seen">
-            <a (click)="removeToSeen(episode)" class="btn btn-primary" >
+            <a (click)="removeSeen(episode)" class="btn btn-primary" >
                 Episode vu
             </a>
         </div>      
