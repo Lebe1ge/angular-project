@@ -15,12 +15,12 @@ export class BlocSerieComponent implements OnInit {
   @Input() isLoading = true;
 
   // Methods
-  addToFavorite(serie: Serie) :void{
+  addToFavorite(serie: Serie): void {
     serie.favorite = true;
     this.DataStorageService.add(serie.id);
   }
 
-  allFavorite() :void {
+  allFavorite(): void {
     this.DataStorageService.getAllData();
   }
 

@@ -16,6 +16,8 @@ import { MySerieOutputComponent } from './my-series/my-serie-output/my-serie-out
     ProfileComponent,
     MySeriesComponent,
     MySerieOutputComponent
+  ],
+  providers: [
   ]
 })
 export class AccountModule { }
