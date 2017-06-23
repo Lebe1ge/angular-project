@@ -23,13 +23,15 @@ export class MySerieOutputComponent implements OnInit {
 
   ngOnInit() {
     this.DataStorageService.setKeyStorage(KEY_STORAGE_SERIES);
-    this.SerieService
-      .getUserSeries(this.DataStorageService.getAllData())
-      .subscribe(series => {
-        this.series = series;
-        this.seriesUpdate.emit(series);
-        this.isLoading = false;
-      });
+    if(this.DataStorageService.getAllData().length > 0){
+      this.SerieService
+        .getUserSeries(this.DataStorageService.getAllData())
+        .subscribe(series => {
+          this.series = series;
+          this.seriesUpdate.emit(series);
+          this.isLoading = false;
+        });
+    }
   }
 
 }
