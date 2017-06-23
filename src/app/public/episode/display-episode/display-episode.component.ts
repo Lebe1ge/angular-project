@@ -90,11 +90,4 @@ export class DisplayEpisodeComponent implements OnInit {
       this.keyStorage = KEY_STORAGE_EPISODES;
     });
   }
-
-  getSerie(episodeId) {
-    this.episodeService.getEpisode(episodeId)
-      .subscribe(
-      episode => this.episode = episode,
-      error => this.errorMessage = <any>error);
-  }
 }
