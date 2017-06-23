@@ -6,12 +6,12 @@
             <h2>Saison n°{{ episode?.season }}</h2>
             <p>Date de diffusion : {{ episode?.date }}</p>
         </div>
-        <div class="mix col-xs-12 col-sm-6 col-md-3 text-center">
+        <!-- <div class="mix col-xs-12 col-sm-6 col-md-3 text-center">
             <p class="text-center" *ngIf="auth.isAuthenticated()">
-                <a *ngIf="!episode.seen" (click)="removeSeen(episode)" class="mark-as-seen btn btn-primary mt-30" >Episode vu</a>
-                <a *ngIf="episode.seen" (click)="addSeen(episode)" class="mark-as-seen btn btn-primary mt-30" >Marquer l'épisode comme vu</a>
+                <a *ngIf="!episode?.seen" (click)="removeSeen(episode)" class="mark-as-seen btn btn-primary mt-30" >Episode vu</a>
+                <a *ngIf="episode?.seen" (click)="addSeen(episode)" class="mark-as-seen btn btn-primary mt-30" >Marquer l'épisode comme vu</a>
             </p>
-        </div>
+        </div> -->
         <div class="col-xs-12 col-sm-6 col-md-9">
             <p class="description">
                 <strong>Description :</strong>
