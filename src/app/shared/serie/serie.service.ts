@@ -9,7 +9,7 @@ import { Serie } from '../../entity/serie';
 
 @Injectable()
 export class SerieService {
-  link = 'https://api.betaseries.com/search/all?v=2.4&query=';
+  link = 'https://api.betaseries.com/shows/list?limit=8&starting=';
   serie: Serie;
   series = [];
   options = new RequestOptions({
