@@ -1,7 +1,12 @@
 
+<app-serie-banner [serie]="serie" >
+  <h1 class="mb-20" >{{ serie?.title }}</h1>
+</app-serie-banner>
 <div id="episodes" class="container">
-  <h1>Saison n° {{ season }}</h1>
+  <button (click)="goBack()" class="btn btn-primary" >Retour</button>
+  <h2 class="mb-30" >Saison n° {{ season }}</h2>
   <div class="row">
+
     <app-bloc-episode *ngFor="let episode of episodes;" [episode]="episode" ></app-bloc-episode>
   </div>
 </div>

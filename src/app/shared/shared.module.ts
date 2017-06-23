@@ -19,6 +19,7 @@ import { BlocSerieComponent } from './serie/bloc-serie/bloc-serie.component';
 import { DisplayEpisodeComponent } from './episode/display-episode/display-episode.component';
 import { DisplaySerieComponent } from './serie/display-serie/display-serie.component';
 import { BlocEpisodeComponent } from './season/bloc-episode/bloc-episode.component';
+import { SerieBannerComponent } from './serie/serie-banner/serie-banner.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { BlocEpisodeComponent } from './season/bloc-episode/bloc-episode.compone
     BlocSerieComponent,
     DisplayEpisodeComponent,
     DisplaySerieComponent,
-    BlocEpisodeComponent
+    BlocEpisodeComponent,
+    SerieBannerComponent
   ],
   providers: [
     SerieService,
@@ -48,7 +50,8 @@ import { BlocEpisodeComponent } from './season/bloc-episode/bloc-episode.compone
     ListeSerieComponent,
     BlocSerieComponent,
     DisplayEpisodeComponent,
-    DisplaySerieComponent
+    DisplaySerieComponent,
+    SerieBannerComponent
   ]
 })
 export class SharedModule {
